@@ -1,0 +1,14 @@
+# Model weights
+*/
+!.gitignore
+!README.md
+!docker-compose.sweet.yml
+!chat_template.jinja
+
+# Data and runs
+data/
+runs/
+
+# Python cache
+__pycache__/
+*.pyc
