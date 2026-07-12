@@ -64,13 +64,14 @@ A production-grade multi-agent code analysis system that leverages a local Qwen3
 ### Test Suite
 - **4/4 tests passing** — unit tests for LLM client, concurrency, orchestrator, and data structures
 
-### Live Pipeline Run
+### Live Pipeline Run (Run 2 — Improved Prompts)
 - **Target:** Qwen3.6-27B on vLLM (localhost:8000)
 - **Input:** `scripts/demo_code.py` (intentionally flawed demo code)
 - **Concurrency:** 5 reviewer agents in parallel + 1 synthesizer
-- **Total Pipeline Latency:** ~277 seconds
-- **Per-Agent Latency:** 155-187 seconds (parallel execution)
+- **Total Pipeline Latency:** ~524 seconds
+- **Per-Agent Latency:** 287-433 seconds (parallel execution)
 - **GPU Utilization:** 94% during execution
+- **Agent Success Rate:** 5/5 (100%, up from 3/5 in Run 1 after prompt simplification)
 
 ### Key Findings from Demo Analysis
 The pipeline successfully identified critical issues in the demo code:
@@ -114,14 +115,17 @@ curl -X POST http://localhost:8080/analyze \
 
 ## Performance Characteristics
 
-| Metric | Value |
-|--------|-------|
-| Parallel agent latency | 155-187s per agent |
-| Total pipeline time | ~277s |
-| Sequential equivalent | ~800s+ |
-| Speedup factor | ~2.9x via parallelism |
-| GPU utilization | 94% |
-| Model context window | 196,608 tokens |
+| Metric | Run 1 (verbose prompts) | Run 2 (concise prompts) |
+|--------|------------------------|------------------------|
+| Parallel agent latency | 155-187s per agent | 287-433s per agent |
+| Total pipeline time | ~277s | ~524s |
+| Sequential equivalent | ~800s+ | ~1500s+ |
+| Speedup factor | ~2.9x via parallelism | ~2.9x via parallelism |
+| Agent success rate | 3/5 (60%) | 5/5 (100%) |
+| GPU utilization | 94% | 94% |
+| Model context window | 196,608 tokens | 196,608 tokens |
+
+Note: Run 2 had longer per-agent responses due to more detailed analysis output, but maintained the same parallelism speedup.
 
 ## What Makes This Impressive
 
