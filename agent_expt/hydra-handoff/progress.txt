@@ -1,0 +1,10 @@
+Ralph Progress Log — HydraCode-6
+=================================
+
+Started: 2026-07-19
+Environment: Python 3.12.3, Git 2.43.0, Claude Code 2.1.150, vLLM (qwen on :8000)
+PRD: prd.json (20 stories)
+
+## Iteration 1 — US-001: Project scaffold and typed data models
+- Creating project structure with pyproject.toml
+- All model files: config, models, run state, trajectory, test matrix, judge, scoring

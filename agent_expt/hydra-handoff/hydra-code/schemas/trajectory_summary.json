@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrajectorySummary",
+  "type": "object",
+  "required": ["candidate_id", "completion_status", "task_interpretation"],
+  "properties": {
+    "candidate_id": {"type": "string"},
+    "completion_status": {"type": "string"},
+    "task_interpretation": {"type": "string"},
+    "root_cause_hypotheses": {"type": "array", "items": {"type": "string"}},
+    "evidence_for": {"type": "array", "items": {"type": "string"}},
+    "evidence_against": {"type": "array", "items": {"type": "string"}},
+    "relevant_files": {"type": "array", "items": {"type": "string"}},
+    "relevant_symbols": {"type": "array", "items": {"type": "string"}},
+    "changes": {"type": "array", "items": {"type": "string"}},
+    "commands_executed": {"type": "array", "items": {"type": "string"}},
+    "tests_run": {"type": "array", "items": {"type": "string"}},
+    "test_results": {"type": "array", "items": {"type": "string"}},
+    "remaining_failures": {"type": "array", "items": {"type": "string"}},
+    "generated_tests": {"type": "array", "items": {"type": "string"}},
+    "diff_stats": {"type": "object"},
+    "known_risks": {"type": "array", "items": {"type": "string"}},
+    "useful_discoveries": {"type": "array", "items": {"type": "string"}},
+    "failed_approaches": {"type": "array", "items": {"type": "string"}},
+    "recommended_next_step": {"type": "string"},
+    "self_confidence": {"type": "number"}
+  }
+}

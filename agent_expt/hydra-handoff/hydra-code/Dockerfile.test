@@ -1,0 +1,35 @@
+# Test environment Docker image for HydraCode-6
+# Uses Python 3.12 with all dependencies pre-installed
+
+FROM python:3.12-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configure git for non-interactive commits
+RUN git config --global user.email "test@test.com" && \
+    git config --global user.name "Test" && \
+    git config --global core.editor "cat"
+
+# Create app directory
+WORKDIR /app
+
+# Copy source code first (needed for pip install)
+COPY src/ ./src/
+COPY pyproject.toml ./
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir .[dev]
+
+# Copy tests
+COPY tests/ ./tests/
+
+# Set Python path
+ENV PYTHONPATH=/app/src
+
+# Default command runs tests (excluding integration tests that need git)
+CMD ["pytest", "-v", "--tb=short", "-m", "not integration"]

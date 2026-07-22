@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HydraCode-6 System Architecture</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2e3140;
+    --text: #e4e6ed;
+    --muted: #8b8fa3;
+    --accent: #6366f1;
+    --green: #22c55e;
+    --orange: #f59e0b;
+    --red: #ef4444;
+    --cyan: #06b6d4;
+    --purple: #a855f7;
+    --pink: #ec4899;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .section {
+    margin-bottom: 3rem;
+  }
+  .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title .badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+  }
+
+  /* Pipeline flow */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+  .pipeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+    position: relative;
+  }
+  .pipeline-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    width: 110px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .pipeline-node:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  }
+  .pipeline-node.active {
+    border-color: var(--green);
+    background: rgba(34, 197, 94, 0.1);
+  }
+  .pipeline-node .icon {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+  .pipeline-arrow {
+    color: var(--accent);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+  }
+
+  /* Architecture diagram */
+  .arch-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .arch-layer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+  }
+  .arch-layer-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .component {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+  .component:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+  }
+  .component-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  .component-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .component-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+  .tag-core { background: rgba(99, 102, 241, 0.2); color: var(--accent); }
+  .tag-async { background: rgba(6, 182, 212, 0.2); color: var(--cyan); }
+  .tag-agent { background: rgba(168, 85, 247, 0.2); color: var(--purple); }
+  .tag-io { background: rgba(245, 158, 11, 0.2); color: var(--orange); }
+  .tag-data { background: rgba(34, 197, 94, 0.2); color: var(--green); }
+
+  /* Candidate roles */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .role-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .role-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .role-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .role-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+  .role-desc {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* Data flow */
+  .dataflow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+  }
+  .dataflow-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 140px;
+  }
+  .dataflow-arrow {
+    color: var(--accent);
+    font-size: 1.2rem;
+  }
+
+  /* Metrics */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .metric-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  /* Sequence diagram */
+  .sequence {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 1rem 0;
+  }
+  .seq-column {
+    border-left: 1px dashed var(--border);
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+  .seq-column:first-child { border-left: none; }
+  .seq-header {
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .seq-event {
+    font-size: 0.7rem;
+    padding: 0.4rem;
+    margin: 0.25rem 0;
+    background: var(--surface);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .seq-arrow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  /* File map */
+  .file-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.5rem;
+  }
+  .file-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  .file-icon { color: var(--cyan); }
+  .file-desc { color: var(--muted); font-size: 0.75rem; margin-left: auto; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    body { padding: 1rem; }
+    .pipeline { flex-wrap: nowrap; }
+    .sequence { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Animation for pipeline */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .pipeline-node.highlight {
+    animation: pulse 2s ease-in-out infinite;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>HydraCode-6</h1>
+  <p class="subtitle">Multi-Agent Code Analysis Pipeline with Concurrent Candidate Strategies</p>
+
+  <!-- Key Metrics -->
+  <div class="section">
+    <div class="section-title">Key Metrics <span class="badge">OVERVIEW</span></div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">6</div>
+        <div class="metric-label">Concurrent Workers</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">6</div>
+        <div class="metric-label">Candidate Strategies</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">12</div>
+        <div class="metric-label">Pipeline Phases</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">3</div>
+        <div class="metric-label">Max Retries</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">25</div>
+        <div class="metric-label">Max Turns / Agent</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">10m</div>
+        <div class="metric-label">Agent Timeout</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pipeline Flow -->
+  <div class="section">
+    <div class="section-title">Pipeline Phases <span class="badge">RUNPHASE ENUM</span></div>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">🔍</div>Preflight</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">📦</div>Context Packet</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node highlight"><div class="icon">🤖</div>Candidate Gen</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">📝</div>Trajectory</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">🧪</div>Test Matrix</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">📊</div>Evaluation</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">🏆</div>Tournament</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">🔧</div>Refinement</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">✅</div>Validation</div>
+      </div>
+      <div class="pipeline-arrow">&#10140;</div>
+      <div class="pipeline-step">
+        <div class="pipeline-node"><div class="icon">📋</div>Reporting</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- System Architecture Layers -->
+  <div class="section">
+    <div class="section-title">Architecture Layers <span class="badge">SYSTEM DESIGN</span></div>
+    <div class="arch-grid">
+      <!-- Entry Layer -->
+      <div class="arch-layer">
+        <div class="arch-layer-title">Entry Layer</div>
+        <div class="component-grid">
+          <div class="component">
+            <div class="component-name">Orchestrator</div>
+            <div class="component-desc">Main pipeline controller. Manages run lifecycle, phase transitions, state persistence, and coordinates candidate generation through the scheduler.</div>
+            <span class="component-tag tag-core">orchestrator.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">RunConfig</div>
+            <div class="component-desc">Configuration dataclass: task, mode, concurrency, timeouts, scoring weights, retry policies, and Claude binary injection.</div>
+            <span class="component-tag tag-data">models.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">RunState</div>
+            <div class="component-desc">Persistent run state tracking candidates, test matrix, scores, hard gates, and tournament results across phases.</div>
+            <span class="component-tag tag-data">models.py</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concurrency Layer -->
+      <div class="arch-layer">
+        <div class="arch-layer-title">Concurrency Layer</div>
+        <div class="component-grid">
+          <div class="component">
+            <div class="component-name">Scheduler</div>
+            <div class="component-desc">Semaphore-based async scheduler. Controls concurrent execution of candidate workers with priority queuing (HIGH/NORMAL/LOW).</div>
+            <span class="component-tag tag-async">scheduler.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">Worktrees</div>
+            <div class="component-desc">Creates isolated git worktrees for each candidate at <code>.hydra/worktrees/{run}/{id}</code>. Handles patch extraction against base SHA.</div>
+            <span class="component-tag tag-io">worktrees.py</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent Layer -->
+      <div class="arch-layer">
+        <div class="arch-layer-title">Agent Layer (6 Parallel Workers)</div>
+        <div class="component-grid">
+          <div class="component">
+            <div class="component-name">ClaudeRunner</div>
+            <div class="component-desc">Launches Claude Code subprocesses with configurable binary. Handles retry logic with exponential backoff, timeout, and process group cleanup.</div>
+            <span class="component-tag tag-agent">claude_runner.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">ContextPacket</div>
+            <div class="component-desc">Generates structured context from git history, repo structure, test commands, and task description for each candidate's prompt.</div>
+            <span class="component-tag tag-agent">context_packet.py</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evaluation Layer -->
+      <div class="arch-layer">
+        <div class="arch-layer-title">Evaluation Layer</div>
+        <div class="component-grid">
+          <div class="component">
+            <div class="component-name">TestMatrix</div>
+            <div class="component-desc">Candidate-test evaluation matrix. Runs harvested tests against each candidate worktree, records pass/fail/timeout verdicts.</div>
+            <span class="component-tag tag-data">models.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">CandidateScore</div>
+            <div class="component-desc">Evidence-based scoring: issue-specific tests (35%), regression (25%), build/lint (15%), edge tests (10%), minimality (10%), static risk (5%).</div>
+            <span class="component-tag tag-data">models.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">Tournament</div>
+            <div class="component-desc">Multi-judge voting system. Multiple judges rank candidates, aggregate votes, detect ties, and request distinguishing tests.</div>
+            <span class="component-tag tag-data">models.py</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Candidate Strategies -->
+  <div class="section">
+    <div class="section-title">Candidate Strategies <span class="badge">CANDIDATE_ROLE ENUM</span></div>
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-icon">&#128201;</div>
+        <div class="role-name">minimal</div>
+        <div class="role-desc">Smallest correct patch. No unrelated refactoring.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#128300;</div>
+        <div class="role-name">root-cause</div>
+        <div class="role-desc">Trace data/control flow. Establish root cause first.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#129302;</div>
+        <div class="role-name">test-driven</div>
+        <div class="role-desc">Reproduce failure. Write failing test before fix.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#127959;</div>
+        <div class="role-name">architecture</div>
+        <div class="role-desc">Examine APIs, boundaries, and compatibility.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#129307;</div>
+        <div class="role-name">adversarial</div>
+        <div class="role-desc">Edge cases, regressions, invalid assumptions.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#127757;</div>
+        <div class="role-name">alternative</div>
+        <div class="role-desc">Challenge obvious fix. Different solution strategy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Flow -->
+  <div class="section">
+    <div class="section-title">Execution Flow <span class="badge">DATA FLOW</span></div>
+    <div class="dataflow">
+      <div class="dataflow-node">Task Description<br><small style="color:var(--muted)">User input</small></div>
+      <div class="dataflow-arrow">&#10140;</div>
+      <div class="dataflow-node">Context Packet<br><small style="color:var(--muted)">Git + repo info</small></div>
+      <div class="dataflow-arrow">&#10140;</div>
+      <div class="dataflow-node">6 Worktrees<br><small style="color:var(--muted)">Isolated repos</small></div>
+      <div class="dataflow-arrow">&#10140;</div>
+      <div class="dataflow-node">6 Claude Sessions<br><small style="color:var(--muted)">Parallel agents</small></div>
+      <div class="dataflow-arrow">&#10140;</div>
+      <div class="dataflow-node">Patch Extraction<br><small style="color:var(--muted)">Diff vs base</small></div>
+      <div class="dataflow-arrow">&#10140;</div>
+      <div class="dataflow-node">Test Matrix<br><small style="color:var(--muted)">Score each</small></div>
+      <div class="dataflow-arrow">&#10140;</div>
+      <div class="dataflow-node">Winner<br><small style="color:var(--muted)">Tournament</small></div>
+    </div>
+  </div>
+
+  <!-- Sequence View -->
+  <div class="section">
+    <div class="section-title">Sequence Diagram <span class="badge">LIFECYCLE</span></div>
+    <div class="sequence">
+      <div class="seq-column">
+        <div class="seq-header">Orchestrator</div>
+        <div class="seq-event">preflight()</div>
+        <div class="seq-event">generate context</div>
+        <div class="seq-event">spawn 6 jobs</div>
+        <div class="seq-event">collect results</div>
+        <div class="seq-event">evaluate()</div>
+        <div class="seq-event">tournament()</div>
+        <div class="seq-event">select winner</div>
+        <div class="seq-event">report()</div>
+      </div>
+      <div class="seq-column">
+        <div class="seq-header">Scheduler</div>
+        <div class="seq-event">Semaphore(6)</div>
+        <div class="seq-event">queue jobs</div>
+        <div class="seq-event">dispatch #1-6</div>
+        <div class="seq-event">wait gather()</div>
+        <div class="seq-event"></div>
+        <div class="seq-event"></div>
+        <div class="seq-event"></div>
+        <div class="seq-event"></div>
+      </div>
+      <div class="seq-column">
+        <div class="seq-header">ClaudeRunner</div>
+        <div class="seq-event"></div>
+        <div class="seq-event"></div>
+        <div class="seq-event">subprocess exec</div>
+        <div class="seq-event">capture I/O</div>
+        <div class="seq-event">retry (3x)</div>
+        <div class="seq-event">timeout kill</div>
+        <div class="seq-event">return result</div>
+        <div class="seq-event"></div>
+      </div>
+      <div class="seq-column">
+        <div class="seq-header">Worktree</div>
+        <div class="seq-event"></div>
+        <div class="seq-event">git worktree add</div>
+        <div class="seq-event">agent edits</div>
+        <div class="seq-event">git diff</div>
+        <div class="seq-event">patch extract</div>
+        <div class="seq-event">test run</div>
+        <div class="seq-event">score calc</div>
+        <div class="seq-event">cleanup</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Source File Map -->
+  <div class="section">
+    <div class="section-title">Source Map <span class="badge">FILES</span></div>
+    <div class="file-list">
+      <div class="file-item"><span class="file-icon">&#128065;</span> orchestrator.py <span class="file-desc">Pipeline controller</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> models.py <span class="file-desc">Data models & enums</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> claude_runner.py <span class="file-desc">Subprocess launcher</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> scheduler.py <span class="file-desc">Async concurrency</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> worktrees.py <span class="file-desc">Git worktree mgmt</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> context_packet.py <span class="file-desc">Context generation</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> utils.py <span class="file-desc">Atomic writes, IDs</span></div>
+      <div class="file-item"><span class="file-icon">&#128065;</span> cli.py <span class="file-desc">Typer CLI entry</span></div>
+    </div>
+  </div>
+
+  <!-- Retry & Error Handling -->
+  <div class="section">
+    <div class="section-title">Resilience <span class="badge">ERROR HANDLING</span></div>
+    <div class="arch-grid">
+      <div class="arch-layer">
+        <div class="component-grid">
+          <div class="component">
+            <div class="component-name">Retry Logic</div>
+            <div class="component-desc">Exponential backoff: 2s base, 60s max cap, 3 retries. Retryable patterns: 429, ECONNRESET, capacity, timeout.</div>
+            <span class="component-tag tag-core">claude_runner.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">Process Cleanup</div>
+            <div class="component-desc">Kill entire process group on timeout: SIGTERM &#8594; 2s grace &#8594; SIGKILL. Prevents orphaned Claude sessions.</div>
+            <span class="component-tag tag-core">claude_runner.py</span>
+          </div>
+          <div class="component">
+            <div class="component-name">Status Classification</div>
+            <div class="component-desc">CandidateStatus: COMPLETED, FAILED, TIMEOUT, REJECTED, SELECTED. Hard gates for disqualification.</div>
+            <span class="component-tag tag-data">models.py</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

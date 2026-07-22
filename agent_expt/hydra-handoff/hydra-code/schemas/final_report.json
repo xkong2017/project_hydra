@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FinalReport",
+  "type": "object",
+  "required": ["run_id", "task", "final_candidate", "started_at", "completed_at"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "task": {"type": "string"},
+    "final_candidate": {"type": "string"},
+    "started_at": {"type": "string"},
+    "completed_at": {"type": "string"},
+    "candidates": {"type": "array"},
+    "scores": {"type": "object"},
+    "tournament_result": {"type": "object"},
+    "metrics": {"type": "object"},
+    "report_path": {"type": "string"}
+  }
+}

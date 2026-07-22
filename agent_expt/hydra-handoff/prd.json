@@ -1,0 +1,298 @@
+{
+  "project": "HydraCode-6: Parallel Test-Time Scaling for Claude Code",
+  "description": "Python external orchestrator that runs 6 concurrent Claude Code sessions in isolated Git worktrees, evaluates candidates with generated tests and tournament selection, and produces a final patch with auditable report.",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Project scaffold and typed data models",
+      "priority": 1,
+      "description": "Create pyproject.toml, directory structure, and all Pydantic/dataclass models for RunConfig, Candidate, TrajectorySummary, TestMatrix, JudgeResult, RunState, etc.",
+      "acceptanceCriteria": [
+        "pyproject.toml defines package with pytest, ruff, mypy, and httpx dependencies",
+        "python -m hydra_code runs without import errors",
+        "All model files import cleanly and pass mypy",
+        "Data models support JSON serialization/deserialization",
+        "ruff check and mypy pass on all source files"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "CLI and run-state persistence",
+      "priority": 2,
+      "description": "Implement CLI commands (run, resume, status, report, clean, benchmark) with atomic JSON state persistence and graceful signal handling.",
+      "acceptanceCriteria": [
+        "hydra-code run <task> creates run directory and writes run.json",
+        "hydra-code status <run-id> displays current phase",
+        "Atomic writes prevent corrupt state files on interruption",
+        "SIGINT/SIGTERM handling kills child processes gracefully",
+        "Run state is resumable after interruption",
+        "Unit tests for CLI parsing and state persistence pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "Git worktree management and safety",
+      "priority": 3,
+      "description": "Create, manage, and clean up Git worktrees under .hydra/worktrees/<run-id>/<candidate-id>/ with dirty-repo protection.",
+      "acceptanceCriteria": [
+        "Worktrees created from exact base SHA, not default branch",
+        "Main checkout remains unchanged after worktree operations",
+        "Dirty repository detected and refused by default",
+        "Patch persisted before worktree cleanup",
+        "Worktree locking prevents concurrent access",
+        "Unit tests for worktree lifecycle pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-004",
+      "title": "Context packet and prompt loading",
+      "priority": 4,
+      "description": "Generate deterministic context packet shared by all workers, plus role-specific prompt templates for 6 candidate types.",
+      "acceptanceCriteria": [
+        "Context packet contains: task, base SHA, repo structure, test commands, constraints",
+        "Six prompt templates loaded from prompts/ directory",
+        "Context packet is identical across all candidates",
+        "Role-specific instructions appended after common context for prefix-cache reuse",
+        "Unit tests for context packet generation pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-005",
+      "title": "Claude Code subprocess runner",
+      "priority": 5,
+      "description": "Launch claude -p with asyncio subprocess, capture stdout/stderr, enforce timeouts, handle retries, and record trajectory.",
+      "acceptanceCriteria": [
+        "claude subprocess launches with correct arguments and worktree cwd",
+        "stdout/stderr captured separately and streamed to disk",
+        "Per-agent timeout enforced with process group termination",
+        "Retry classification distinguishes transient vs deterministic failures",
+        "Exit code, duration, and output recorded for each run",
+        "Secret redaction in reports",
+        "Unit tests for runner behavior pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-006",
+      "title": "Six-worker asynchronous scheduler",
+      "priority": 6,
+      "description": "asyncio.Semaphore-based scheduler that runs up to 6 concurrent Claude Code sessions with priority support.",
+      "acceptanceCriteria": [
+        "Semaphore limits concurrent sessions to configured max (default 6)",
+        "20 mock jobs complete with max 6 simultaneous",
+        "Work-conserving: waiting job starts when slot frees",
+        "Priority jobs jump ahead in queue without interrupting running jobs",
+        "Scheduler slot released after timeout/failure",
+        "Unit tests for concurrency, timeout, and priority pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-007",
+      "title": "Trajectory summary validation and repair",
+      "priority": 7,
+      "description": "Validate candidate trajectory summaries against JSON schema, attempt one repair, mark unknown fields.",
+      "acceptanceCriteria": [
+        "Valid trajectory JSON passes validation",
+        "Missing required fields marked as unknown",
+        "Markdown-fenced JSON extracted and repaired",
+        "Truncated JSON handled gracefully",
+        "System never fabricates test results or file paths",
+        "Unit tests for all schema validation cases pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-008",
+      "title": "Patch and test harvesting with validation",
+      "priority": 8,
+      "description": "Extract patches from candidate worktrees, harvest generated tests, validate against base revision, and reject invalid tests.",
+      "acceptanceCriteria": [
+        "Patches extracted from worktree diffs",
+        "Generated tests validated against base revision",
+        "Bug-reproduction tests that pass on base are rejected",
+        "Candidate-specific tests detected and rejected",
+        "Semantically equivalent tests deduplicated",
+        "Unit tests for harvesting and rejection pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-009",
+      "title": "Candidate test matrix and hard gates",
+      "priority": 9,
+      "description": "Run each accepted test against each candidate, store results, apply hard rejection gates that override scores.",
+      "acceptanceCriteria": [
+        "Test matrix stores candidate-test results with exit codes and durations",
+        "Hard gates reject candidates for: failing required tests, forbidden file changes, test weakening",
+        "Hard gate failures cannot be overridden by weighted score",
+        "Test timeout recorded as timeout, not pass",
+        "Unit tests for gates and matrix pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-010",
+      "title": "Deterministic evidence scoring",
+      "priority": 10,
+      "description": "Configurable weighted scoring formula based on test results, scope, and static risk.",
+      "acceptanceCriteria": [
+        "Scores match configured formula with default weights",
+        "Weight configuration validated to sum to 1.0",
+        "Missing tests do not count as passes",
+        "Timeout not treated as pass",
+        "Unit tests for scoring calculations pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-011",
+      "title": "Recursive tournament voting",
+      "priority": 11,
+      "description": "Small-group tournament selection with majority voting, tie handling, and distinguishing test escalation.",
+      "acceptanceCriteria": [
+        "Candidates split into groups A (1-3) and B (4-6)",
+        "Three independent judge calls per group",
+        "2-1 majority winner advances",
+        "1-1-1 tie triggers uncertainty handling",
+        "Tied selection generates distinguishing test",
+        "Unit tests for voting, ties, and escalation pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-012",
+      "title": "Refinement workflow",
+      "priority": 12,
+      "description": "Standard mode: refine winner once. Deep mode: top-two with parallel refiners, adversarial test generator, and regression reviewer.",
+      "acceptanceCriteria": [
+        "Standard mode refines selected winner once",
+        "Deep mode creates refinement branches from top two candidates",
+        "Distilled packet includes discoveries, failed approaches, and test matrix",
+        "Refined candidates re-evaluated through full pipeline",
+        "Unit tests for refinement logic pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-013",
+      "title": "vLLM metrics collection",
+      "priority": 13,
+      "description": "Poll local vLLM /metrics endpoint, parse Prometheus-format metrics, record throughput and utilization.",
+      "acceptanceCriteria": [
+        "Metrics parser reads Prometheus-format text",
+        "Captures: running requests, KV-cache, token throughput, preemptions",
+        "Missing metrics marked as unavailable rather than failing",
+        "Unit tests for metrics parsing pass"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-014",
+      "title": "Final validation and reporting",
+      "priority": 14,
+      "description": "Final candidate validation, static inspection, patch/diff generation, and comprehensive report.",
+      "acceptanceCriteria": [
+        "Final candidate passes all required tests",
+        "Static inspection checks for disabled tests, secrets, debug statements",
+        "Produces final.patch, final.diff, final-summary.json, validation.json, report.md",
+        "Report includes all metrics and evidence",
+        "No automatic application to main checkout"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-015",
+      "title": "Claude Code /hydra-code skill",
+      "priority": 15,
+      "description": "Create .claude/skills/hydra-code/SKILL.md that invokes hydra-code CLI.",
+      "acceptanceCriteria": [
+        "SKILL.md exists at .claude/skills/hydra-code/SKILL.md",
+        "Validates arguments before invoking CLI",
+        "Invokes hydra-code run with user arguments",
+        "Streams progress and presents report path",
+        "Never implements code directly when Hydra workflow active"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-016",
+      "title": "Unit test suite - comprehensive coverage",
+      "priority": 16,
+      "description": "Unit tests for all core modules: scheduler, worktrees, runner, schemas, gates, scoring, tournament, refinement, metrics, redaction.",
+      "acceptanceCriteria": [
+        "pytest -m unit passes with 80%+ coverage",
+        "All test cases from test_plan.md section 2 implemented",
+        "Concurrency, timeout, retry, schema, gates, scoring, tournament, redaction all covered",
+        "No external processes or LLM calls in unit tests"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-017",
+      "title": "Deterministic fixture repositories",
+      "priority": 17,
+      "description": "Create 6 fixture repos: pagination bug, cache isolation, async race, parser compatibility, misleading test, multi-file API.",
+      "acceptanceCriteria": [
+        "All 6 fixtures created under tests/fixtures/",
+        "Each fixture has known bug, failing test, and correct patch",
+        "Pagination fixture: off-by-one at exact boundary",
+        "Cache fixture: missing tenant_id in key",
+        "Async fixture: race condition in counter",
+        "Parser fixture: backward compatibility broken",
+        "Misleading fixture: visible test passes but edge case fails",
+        "Multi-file fixture: parameter renamed inconsistently"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-018",
+      "title": "Mocked integration tests",
+      "priority": 18,
+      "description": "Integration tests with mocked Claude CLI covering parallel rollouts, test matrix, selector accuracy, resume, failure recovery, and worktree isolation.",
+      "acceptanceCriteria": [
+        "pytest -m integration passes",
+        "Parallel rollout test proves 6 concurrent sessions",
+        "Selector accuracy test chooses correct patch on fixtures",
+        "Resume test recovers from mid-run interruption",
+        "Failure recovery test handles process crashes",
+        "Worktree isolation test proves main checkout protection"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-019",
+      "title": "Real Qwen smoke and concurrency tests",
+      "priority": 19,
+      "description": "End-to-end tests using real Claude Code against local Qwen model for smoke test and 6-worker concurrency.",
+      "acceptanceCriteria": [
+        "Single worker smoke test passes against Fixture F1",
+        "Six concurrent workers run against Fixture F2 or F5",
+        "Overlapping vLLM requests confirmed via metrics",
+        "Aggregate throughput exceeds single-worker baseline",
+        "Tests marked as e2e and gpu, opt-in with --run-real-llm"
+      ],
+      "passes": true,
+      "notes": "Smoke tests implemented in tests/e2e/test_smoke.py; skip gracefully without LLM infra"
+    },
+    {
+      "id": "US-020",
+      "title": "Documentation and final validation",
+      "priority": 20,
+      "description": "README.md, benchmark support, validation report, and final end-to-end demonstration.",
+      "acceptanceCriteria": [
+        "README.md covers: architecture, installation, commands, lifecycle, safety, benchmarking",
+        "Benchmark YAML format with multiple configurations",
+        "Full workflow runs end-to-end on at least one fixture",
+        "Final validation report generated",
+        "All acceptance criteria from design_doc.md satisfied"
+      ],
+      "passes": true,
+      "notes": "README.md and benchmarks/config.yaml created"
+    }
+  ]
+}

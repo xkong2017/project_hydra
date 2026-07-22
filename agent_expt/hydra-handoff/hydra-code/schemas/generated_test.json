@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GeneratedTest",
+  "type": "object",
+  "required": ["test_id", "source_candidate", "command"],
+  "properties": {
+    "test_id": {"type": "string"},
+    "source_candidate": {"type": "string"},
+    "command": {"type": "string"},
+    "file_path": {"type": "string"},
+    "validity": {"type": "string", "enum": ["valid", "passes_on_base", "candidate_specific", "nondeterministic", "weakens_assertions", "unrelated"]},
+    "rejection_reason": {"type": "string"},
+    "is_reproduction": {"type": "boolean"}
+  }
+}

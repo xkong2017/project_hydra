@@ -1,0 +1,56 @@
+# Benchmark configuration for HydraCode-6
+# Run with: hydra-code benchmark benchmarks/config.yaml
+
+fixtures:
+  - id: pagination
+    path: tests/e2e/fixtures/pagination
+    description: Off-by-one in pagination page calculation
+    difficulty: easy
+
+  - id: cache_isolation
+    path: tests/e2e/fixtures/cache_isolation
+    description: Cache key collision between tenants
+    difficulty: medium
+
+  - id: async_race
+    path: tests/e2e/fixtures/async_race
+    description: Race condition in async resource cleanup
+    difficulty: hard
+
+  - id: parser
+    path: tests/e2e/fixtures/parser
+    description: JSON parser int vs float incompatibility
+    difficulty: medium
+
+  - id: misleading_test
+    path: tests/e2e/fixtures/misleading_test
+    description: Test passes on wrong code (false positive)
+    difficulty: hard
+
+  - id: multi_file
+    path: tests/e2e/fixtures/multi_file
+    description: API change spanning multiple files
+    difficulty: hard
+
+  - id: rounding
+    path: tests/e2e/fixtures/rounding
+    description: Banker's rounding vs commercial rounding in financial calculations
+    difficulty: hard
+
+settings:
+  mode: standard
+  concurrency: 6
+  max_turns: 25
+  agent_timeout_seconds: 600
+  test_timeout_seconds: 120
+  base_ref: HEAD
+  keep_worktrees: false
+  refine: true
+  validate_generated_tests: true
+
+scoring:
+  weights:
+    test_pass_rate: 0.3
+    patch_quality: 0.25
+    no_regressions: 0.25
+    code_quality: 0.2

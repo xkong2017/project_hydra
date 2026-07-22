@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.omc/
+.hydra/runs/
+.hydra/worktrees/
+hydra-code/.hydra/runs/
+hydra-code/.hydra/worktrees/
+hydra-code/.hydra/metrics.json
+hydra-code/src/*.egg-info/

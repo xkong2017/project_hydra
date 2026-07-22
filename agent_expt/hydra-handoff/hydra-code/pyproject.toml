@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hydra-code"
+version = "0.1.0"
+description = "Parallel test-time scaling for local agentic coding via concurrent Claude Code sessions"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "httpx>=0.25",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
+    "ruff>=0.1",
+    "mypy>=1.0",
+    "httpx>=0.25",
+]
+
+[project.scripts]
+hydra-code = "hydra_code.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["tests/e2e/fixtures"]
+filterwarnings = [
+    "ignore::pytest.PytestCollectionWarning:.*TestCaseEntry",
+]
+markers = [
+    "unit: no external processes or LLM calls",
+    "integration: local subprocess and Git integration tests",
+    "e2e: real Claude Code and local Qwen tests",
+    "smoke: smoke and concurrency tests requiring real LLM infrastructure",
+    "gpu: tests requiring the local vLLM server",
+    "slow: tests that may take several minutes",
+    "chaos: injected failure and recovery tests",
+]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unreachable = true
+disable_error_code = ["no-redef", "attr-defined", "no-untyped-def", "no-untyped-call", "type-arg", "no-any-return", "import-untyped"]
+exclude = ["\\.local/"]
+
+[tool.coverage.run]
+source = ["hydra_code"]
+branch = true

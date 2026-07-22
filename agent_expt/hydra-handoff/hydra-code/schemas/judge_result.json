@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "JudgeResult",
+  "type": "object",
+  "required": ["judge_id", "ranking", "winner", "status"],
+  "properties": {
+    "judge_id": {"type": "string"},
+    "ranking": {"type": "array", "items": {"type": "string"}},
+    "winner": {"type": "string"},
+    "acceptance_criteria_assessment": {"type": "object"},
+    "critical_risks": {"type": "array", "items": {"type": "string"}},
+    "decisive_evidence": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number"},
+    "status": {"type": "string", "enum": ["verdict", "insufficient_evidence"]}
+  }
+}
