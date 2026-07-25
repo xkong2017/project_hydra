@@ -1,0 +1,160 @@
+{
+  "pagination": {
+    "single": {
+      "mode": "single",
+      "api_time_sec": 52.4,
+      "response_preview": "ERROR: API ERROR: write() argument must be str, not None",
+      "passed": 0,
+      "failed": 0,
+      "exit_code": 2,
+      "success": false,
+      "stdout_tail": "======================= short test summary info ============================\nERROR test_pagination.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.15s\n"
+    },
+    "multi": {
+      "mode": "multi",
+      "total_time_sec": 173.2,
+      "avg_api_time_sec": 28.1,
+      "total_api_time_sec": 168.4,
+      "num_successful": 4,
+      "overall_success": true,
+      "best_candidate": "minimal",
+      "best_passed": 8,
+      "best_failed": 0,
+      "candidates": [
+        {
+          "strategy": "minimal",
+          "api_time_sec": 17.0,
+          "passed": 8,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": "........                                                                 [100%]\n8 passed in 0.08s\n"
+        },
+        {
+          "strategy": "robust",
+          "api_time_sec": 55.4,
+          "passed": 0,
+          "failed": 0,
+          "exit_code": 2,
+          "success": false,
+          "stdout_tail": "======================= short test summary info ============================\nERROR test_pagination.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.27s\n"
+        },
+        {
+          "strategy": "tdd",
+          "api_time_sec": 15.9,
+          "passed": 8,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": "........                                                                 [100%]\n8 passed in 0.08s\n"
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 11.9,
+          "passed": 8,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": "........                                                                 [100%]\n8 passed in 0.08s\n"
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 56.5,
+          "passed": 0,
+          "failed": 0,
+          "exit_code": 2,
+          "success": false,
+          "stdout_tail": "======================= short test summary info ============================\nERROR test_pagination.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.16s\n"
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 11.6,
+          "passed": 8,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": "........                                                                 [100%]\n8 passed in 0.08s\n"
+        }
+      ]
+    }
+  },
+  "requests_6028": {
+    "single": {
+      "mode": "single",
+      "api_time_sec": 47.8,
+      "response_preview": "```python\n\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nFIXED VERSION: auth info (user:pass@) is preserved when reconstructing URL.\n\"\"\"\n",
+      "passed": 0,
+      "failed": 0,
+      "exit_code": 2,
+      "success": false,
+      "stdout_tail": "======================== short test summary info ============================\nERROR test_url_utils.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+    },
+    "multi": {
+      "mode": "multi",
+      "total_time_sec": 243.8,
+      "avg_api_time_sec": 39.9,
+      "total_api_time_sec": 239.6,
+      "num_successful": 3,
+      "overall_success": true,
+      "best_candidate": "tdd",
+      "best_passed": 5,
+      "best_failed": 0,
+      "candidates": [
+        {
+          "strategy": "minimal",
+          "api_time_sec": 43.0,
+          "passed": 0,
+          "failed": 0,
+          "exit_code": 2,
+          "success": false,
+          "stdout_tail": "======================== short test summary info ============================\nERROR test_url_utils.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.16s\n"
+        },
+        {
+          "strategy": "robust",
+          "api_time_sec": 58.9,
+          "passed": 0,
+          "failed": 0,
+          "exit_code": 2,
+          "success": false,
+          "stdout_tail": "======================== short test summary info ============================\nERROR test_url_utils.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.15s\n"
+        },
+        {
+          "strategy": "tdd",
+          "api_time_sec": 18.1,
+          "passed": 5,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": ".....                                                                    [100%]\n5 passed in 0.07s\n"
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 28.7,
+          "passed": 5,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": ".....                                                                    [100%]\n5 passed in 0.08s\n"
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 42.9,
+          "passed": 5,
+          "failed": 0,
+          "exit_code": 0,
+          "success": true,
+          "stdout_tail": ".....                                                                    [100%]\n5 passed in 0.08s\n"
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 48.0,
+          "passed": 0,
+          "failed": 0,
+          "exit_code": 2,
+          "success": false,
+          "stdout_tail": "======================== short test summary info ============================\nERROR test_url_utils.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.15s\n"
+        }
+      ]
+    }
+  }
+}

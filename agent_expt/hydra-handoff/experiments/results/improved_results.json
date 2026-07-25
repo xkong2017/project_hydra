@@ -1,0 +1,464 @@
+{
+  "H4_exception_silence": {
+    "rollout_best": {
+      "strategy": "alternative",
+      "passed": 5,
+      "failed": 2,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 7,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N11_encoding": {
+    "rollout_best": {
+      "strategy": "adversarial",
+      "passed": 4,
+      "failed": 3,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "root-cause",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 7,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N12_mutable_default": {
+    "rollout_best": {
+      "strategy": "root-cause",
+      "passed": 2,
+      "failed": 2,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "root-cause",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 4,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N13_exception_chaining": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 3,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 4,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N14_decimal_precision": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 4,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": false,
+      "passed": 3,
+      "failed": 2
+    },
+    "final_success": false,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N17_string_escape": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 4,
+      "failed": 2,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": false,
+      "passed": 0,
+      "failed": 0
+    },
+    "final_success": false,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N18_input_validation": {
+    "rollout_best": {
+      "strategy": "architecture",
+      "passed": 10,
+      "failed": 0,
+      "success": true
+    },
+    "oracle": "1/6",
+    "tournament": {
+      "winner": "architecture",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 10,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-03": {
+    "rollout_best": {
+      "strategy": "adversarial",
+      "passed": 2,
+      "failed": 3,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "minimal",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 5,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-07": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 3,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 4,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-13": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 2,
+      "failed": 2,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": false,
+      "passed": 2,
+      "failed": 2
+    },
+    "final_success": false,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-15": {
+    "rollout_best": {
+      "strategy": "adversarial",
+      "passed": 0,
+      "failed": 0,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 4,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-17": {
+    "rollout_best": {
+      "strategy": "alternative",
+      "passed": 3,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": false,
+      "passed": 3,
+      "failed": 1
+    },
+    "final_success": false,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-19": {
+    "rollout_best": {
+      "strategy": "adversarial",
+      "passed": 1,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": false,
+      "passed": 0,
+      "failed": 0
+    },
+    "final_success": false,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-23": {
+    "rollout_best": {
+      "strategy": "alternative",
+      "passed": 1,
+      "failed": 3,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "minimal",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 4,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-25": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 0,
+      "failed": 0,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 5,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-26": {
+    "rollout_best": {
+      "strategy": "minimal",
+      "passed": 1,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 2,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "extra-30": {
+    "rollout_best": {
+      "strategy": "architecture",
+      "passed": 0,
+      "failed": 0,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": false,
+      "passed": 2,
+      "failed": 1
+    },
+    "final_success": false,
+    "baseline_single": false,
+    "baseline_multi": false
+  },
+  "N19_operator_precedence": {
+    "rollout_best": {
+      "strategy": "adversarial",
+      "passed": 5,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "adversarial",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 6,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": true
+  },
+  "extra-04": {
+    "rollout_best": {
+      "strategy": "root-cause",
+      "passed": 6,
+      "failed": 0,
+      "success": true
+    },
+    "oracle": "4/6",
+    "tournament": {
+      "winner": "root-cause",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 6,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": true
+  },
+  "extra-08": {
+    "rollout_best": {
+      "strategy": "tdd",
+      "passed": 4,
+      "failed": 0,
+      "success": true
+    },
+    "oracle": "1/6",
+    "tournament": {
+      "winner": "tdd",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 4,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": true
+  },
+  "extra-09": {
+    "rollout_best": {
+      "strategy": "minimal",
+      "passed": 3,
+      "failed": 0,
+      "success": true
+    },
+    "oracle": "1/6",
+    "tournament": {
+      "winner": "minimal",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 3,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": true
+  },
+  "extra-20": {
+    "rollout_best": {
+      "strategy": "minimal",
+      "passed": 6,
+      "failed": 1,
+      "success": false
+    },
+    "oracle": "0/6",
+    "tournament": {
+      "winner": "root-cause",
+      "tie": false
+    },
+    "refinement": {
+      "success": true,
+      "passed": 7,
+      "failed": 0
+    },
+    "final_success": true,
+    "baseline_single": false,
+    "baseline_multi": true
+  }
+}

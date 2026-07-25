@@ -1,0 +1,22 @@
+{
+  "pagination": {
+    "single": {"success": true, "passed": 8, "failed": 0, "api_time_sec": 14.4, "reasoning_len": 2455, "content_len": 759},
+    "multi": {"num_ok": 6, "oracle": "6/6", "best": "root-cause", "best_p": 8, "best_f": 0, "total_time_sec": 37.3, "efficiency": "98%"}
+  },
+  "requests_6028": {
+    "single": {"success": true, "passed": 5, "failed": 0, "api_time_sec": 76.4, "reasoning_len": 11808, "content_len": 2964},
+    "multi": {"num_ok": 6, "oracle": "6/6", "best": "tdd", "best_p": 5, "best_f": 0, "total_time_sec": 174.7, "efficiency": "100%"}
+  },
+  "cache_isolation": {
+    "single": {"success": true, "passed": 7, "failed": 0, "api_time_sec": 13.1, "reasoning_len": 1053, "content_len": 1238},
+    "multi": {"num_ok": 5, "oracle": "5/6", "best": "tdd", "best_p": 7, "best_f": 0, "total_time_sec": 205.4, "efficiency": "100%"}
+  },
+  "async_race": {
+    "single": {"success": true, "passed": 5, "failed": 0, "api_time_sec": 47.8, "reasoning_len": 9030, "content_len": 1775},
+    "multi": {"num_ok": 6, "oracle": "6/6", "best": "architecture", "best_p": 5, "best_f": 0, "total_time_sec": 318.1, "efficiency": "100%"}
+  },
+  "parser": {
+    "single": {"success": true, "passed": 9, "failed": 0, "api_time_sec": 10.3, "reasoning_len": 824, "content_len": 1072},
+    "multi": {"num_ok": 6, "oracle": "6/6", "best": "architecture", "best_p": 9, "best_f": 0, "total_time_sec": 184.5, "efficiency": "100%"}
+  }
+}

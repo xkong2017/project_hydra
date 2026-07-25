@@ -1,0 +1,212 @@
+{
+  "extra-03": {
+    "single": {
+      "t": 102.6,
+      "cl": 512,
+      "rl": 13361,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 2,
+      "failed": 3,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 601.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 2,
+      "best_f": 3
+    }
+  },
+  "extra-07": {
+    "single": {
+      "t": 105.8,
+      "cl": 398,
+      "rl": 14310,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 3,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 494.5,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 3,
+      "best_f": 1
+    }
+  },
+  "extra-13": {
+    "single": {
+      "t": 76.1,
+      "cl": 440,
+      "rl": 9901,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 2,
+      "failed": 2,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 600.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "tdd",
+      "best_p": 2,
+      "best_f": 2
+    }
+  },
+  "extra-15": {
+    "single": {
+      "t": 110.1,
+      "cl": 222,
+      "rl": 12583,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 0,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 590.7,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "tdd",
+      "best_p": 0,
+      "best_f": 0
+    }
+  },
+  "extra-17": {
+    "single": {
+      "t": 405.0,
+      "cl": 0,
+      "rl": 61464,
+      "fb": true,
+      "fr": "length",
+      "success": false,
+      "passed": 3,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 425.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "adversarial",
+      "best_p": 3,
+      "best_f": 1
+    }
+  },
+  "extra-19": {
+    "single": {
+      "t": 88.2,
+      "cl": 628,
+      "rl": 12793,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 1,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 600.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "tdd",
+      "best_p": 1,
+      "best_f": 1
+    }
+  },
+  "extra-23": {
+    "single": {
+      "t": 121.6,
+      "cl": 646,
+      "rl": 16480,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 1,
+      "failed": 3,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 373.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 1,
+      "best_f": 3
+    }
+  },
+  "extra-25": {
+    "single": {
+      "t": 89.3,
+      "cl": 195,
+      "rl": 9924,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 0,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 530.8,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 0,
+      "best_f": 0
+    }
+  },
+  "extra-26": {
+    "single": {
+      "t": 33.0,
+      "cl": 746,
+      "rl": 5333,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 1,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 279.2,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "architecture",
+      "best_p": 1,
+      "best_f": 1
+    }
+  },
+  "extra-30": {
+    "single": {
+      "t": 225.4,
+      "cl": 834,
+      "rl": 32309,
+      "fb": false,
+      "fr": "stop",
+      "success": false,
+      "passed": 2,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 601.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 2,
+      "best_f": 1
+    }
+  }
+}

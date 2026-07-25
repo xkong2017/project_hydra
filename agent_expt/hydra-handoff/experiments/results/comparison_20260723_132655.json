@@ -1,0 +1,94 @@
+{
+  "single": {
+    "mode": "single-call",
+    "api_time_sec": 17.8,
+    "total_time_sec": 17.8,
+    "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\nfrom typing import List, TypeVar\n\nT = TypeVar('T')\n\n\ndef get_page(items: List[T], page: int, per_page: int) -> List[T]:\n    \"\"\"Return a page of items.\n\n    ",
+    "code_preview": "\"\"\"Simple pagination utility.\"\"\"\n\nfrom typing import List, TypeVar\n\nT = TypeVar('T')\n\n\ndef get_page(items: List[T], page: int, per_page: int) -> List[T]:\n    \"\"\"Return a page of items.\n\n    Args:\n    ",
+    "passed": 8,
+    "failed": 0,
+    "exit_code": 0,
+    "has_correct_fix": true,
+    "success": true,
+    "stdout": "........                                                                 [100%]\n8 passed in 0.07s\n"
+  },
+  "multi": {
+    "mode": "multi-agent",
+    "total_time_sec": 74.8,
+    "avg_api_time_sec": 11.8,
+    "total_api_time_sec": 70.7,
+    "num_successful": 6,
+    "num_candidates": 6,
+    "best_candidate": "minimal",
+    "overall_success": true,
+    "overall_has_correct_fix": true,
+    "candidates": [
+      {
+        "strategy": "minimal",
+        "api_time_sec": 5.6,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 8,
+        "failed": 0,
+        "exit_code": 0,
+        "has_correct_fix": true,
+        "success": true,
+        "stdout": "........                                                                 [100%]\n8 passed in 0.08s\n"
+      },
+      {
+        "strategy": "robust",
+        "api_time_sec": 17.0,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\nimport math\nfrom typing import List, TypeVar\n\nT = TypeVar(\"T\")\n\n\ndef get_page(items: List[T], page: int, p",
+        "passed": 8,
+        "failed": 0,
+        "exit_code": 0,
+        "has_correct_fix": true,
+        "success": true,
+        "stdout": "........                                                                 [100%]\n8 passed in 0.08s\n"
+      },
+      {
+        "strategy": "tdd",
+        "api_time_sec": 6.9,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 8,
+        "failed": 0,
+        "exit_code": 0,
+        "has_correct_fix": true,
+        "success": true,
+        "stdout": "........                                                                 [100%]\n8 passed in 0.08s\n"
+      },
+      {
+        "strategy": "root-cause",
+        "api_time_sec": 11.0,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 8,
+        "failed": 0,
+        "exit_code": 0,
+        "has_correct_fix": true,
+        "success": true,
+        "stdout": "........                                                                 [100%]\n8 passed in 0.08s\n"
+      },
+      {
+        "strategy": "adversarial",
+        "api_time_sec": 23.7,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 8,
+        "failed": 0,
+        "exit_code": 0,
+        "has_correct_fix": true,
+        "success": true,
+        "stdout": "........                                                                 [100%]\n8 passed in 0.08s\n"
+      },
+      {
+        "strategy": "architecture",
+        "api_time_sec": 6.4,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 8,
+        "failed": 0,
+        "exit_code": 0,
+        "has_correct_fix": true,
+        "success": true,
+        "stdout": "........                                                                 [100%]\n8 passed in 0.08s\n"
+      }
+    ]
+  }
+}

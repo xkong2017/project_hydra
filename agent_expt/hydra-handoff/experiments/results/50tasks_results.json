@@ -1,0 +1,2422 @@
+{
+  "paginator": {
+    "fixture": "paginator",
+    "n_tests": 8,
+    "single": {
+      "t": 14.8,
+      "cl": 759,
+      "rl": 1859,
+      "fb": false,
+      "success": true,
+      "passed": 8,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 96.0,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "minimal",
+      "best_p": 8,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 17.0,
+          "cl": 759,
+          "rl": 1511,
+          "fb": false,
+          "success": true,
+          "passed": 8,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 23.3,
+          "cl": 759,
+          "rl": 1875,
+          "fb": false,
+          "success": true,
+          "passed": 8,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 25.4,
+          "cl": 759,
+          "rl": 2379,
+          "fb": false,
+          "success": true,
+          "passed": 8,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 25.6,
+          "cl": 759,
+          "rl": 2334,
+          "fb": false,
+          "success": true,
+          "passed": 8,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 33.5,
+          "cl": 759,
+          "rl": 3984,
+          "fb": false,
+          "success": true,
+          "passed": 8,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 95.4,
+          "cl": 755,
+          "rl": 11045,
+          "fb": false,
+          "success": true,
+          "passed": 8,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "requests_6028": {
+    "fixture": "requests_6028",
+    "n_tests": 5,
+    "single": {
+      "t": 102.9,
+      "cl": 3122,
+      "rl": 13740,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 244.1,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 112.2,
+          "cl": 2964,
+          "rl": 9630,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 132.9,
+          "cl": 3121,
+          "rl": 12995,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 145.2,
+          "cl": 3164,
+          "rl": 14255,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 158.7,
+          "cl": 3087,
+          "rl": 15284,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 174.2,
+          "cl": 3075,
+          "rl": 18454,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 243.5,
+          "cl": 3265,
+          "rl": 22410,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "cache_isolation": {
+    "fixture": "cache_isolation",
+    "n_tests": 7,
+    "single": {
+      "t": 27.0,
+      "cl": 1431,
+      "rl": 4911,
+      "fb": false,
+      "success": true,
+      "passed": 7,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 74.3,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "root-cause",
+      "best_p": 7,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 24.3,
+          "cl": 1431,
+          "rl": 2358,
+          "fb": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 31.4,
+          "cl": 1431,
+          "rl": 3133,
+          "fb": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 38.3,
+          "cl": 1431,
+          "rl": 4328,
+          "fb": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 40.9,
+          "cl": 1318,
+          "rl": 3910,
+          "fb": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 46.6,
+          "cl": 1431,
+          "rl": 5660,
+          "fb": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 73.6,
+          "cl": 1416,
+          "rl": 7892,
+          "fb": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "async_race": {
+    "fixture": "async_race",
+    "n_tests": 5,
+    "single": {
+      "t": 48.0,
+      "cl": 1640,
+      "rl": 8762,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 88.0,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "root-cause",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 54.3,
+          "cl": 1532,
+          "rl": 6349,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 58.1,
+          "cl": 1861,
+          "rl": 6913,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 62.5,
+          "cl": 1612,
+          "rl": 6880,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 73.7,
+          "cl": 1861,
+          "rl": 8796,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 86.9,
+          "cl": 1600,
+          "rl": 7909,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 87.2,
+          "cl": 1507,
+          "rl": 10769,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "parser": {
+    "fixture": "parser",
+    "n_tests": 9,
+    "single": {
+      "t": 40.5,
+      "cl": 1058,
+      "rl": 6626,
+      "fb": false,
+      "success": true,
+      "passed": 9,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 200.3,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "architecture",
+      "best_p": 9,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 52.1,
+          "cl": 1058,
+          "rl": 5309,
+          "fb": false,
+          "success": true,
+          "passed": 9,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 56.0,
+          "cl": 1058,
+          "rl": 5923,
+          "fb": false,
+          "success": true,
+          "passed": 9,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 62.8,
+          "cl": 1058,
+          "rl": 6846,
+          "fb": false,
+          "success": true,
+          "passed": 9,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 71.8,
+          "cl": 1058,
+          "rl": 7675,
+          "fb": false,
+          "success": true,
+          "passed": 9,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 81.0,
+          "cl": 949,
+          "rl": 8934,
+          "fb": false,
+          "success": true,
+          "passed": 9,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 199.6,
+          "cl": 0,
+          "rl": 24387,
+          "fb": true,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": "unexpected indent (parser.py, line 1)",
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "H1_variable_scope": {
+    "fixture": "H1_variable_scope",
+    "n_tests": 6,
+    "single": {
+      "t": 43.2,
+      "cl": 999,
+      "rl": 7831,
+      "fb": false,
+      "success": true,
+      "passed": 6,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 96.9,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "minimal",
+      "best_p": 6,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 51.7,
+          "cl": 1223,
+          "rl": 5187,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 57.9,
+          "cl": 1075,
+          "rl": 6594,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 62.6,
+          "cl": 1005,
+          "rl": 6722,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 68.8,
+          "cl": 999,
+          "rl": 7485,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 73.3,
+          "cl": 1005,
+          "rl": 8278,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 96.3,
+          "cl": 1005,
+          "rl": 10439,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "H2_cache_stale": {
+    "fixture": "H2_cache_stale",
+    "n_tests": 5,
+    "single": {
+      "t": 55.0,
+      "cl": 672,
+      "rl": 7230,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 152.5,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 50.0,
+          "cl": 672,
+          "rl": 4560,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 60.7,
+          "cl": 672,
+          "rl": 5277,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 65.2,
+          "cl": 672,
+          "rl": 5530,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 70.7,
+          "cl": 672,
+          "rl": 6325,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 77.7,
+          "cl": 672,
+          "rl": 7803,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 151.9,
+          "cl": 477,
+          "rl": 15732,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "H3_shared_state": {
+    "fixture": "H3_shared_state",
+    "n_tests": 5,
+    "single": {
+      "t": 28.3,
+      "cl": 1295,
+      "rl": 5136,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 211.2,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "minimal",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 26.7,
+          "cl": 1295,
+          "rl": 2740,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 28.4,
+          "cl": 1295,
+          "rl": 2685,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 36.4,
+          "cl": 1295,
+          "rl": 4533,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 41.1,
+          "cl": 1192,
+          "rl": 4831,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 97.4,
+          "cl": 1127,
+          "rl": 12186,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 210.6,
+          "cl": 0,
+          "rl": 33606,
+          "fb": true,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        }
+      ]
+    }
+  },
+  "H4_exception_silence": {
+    "fixture": "H4_exception_silence",
+    "n_tests": 7,
+    "single": {
+      "t": 83.0,
+      "cl": 1053,
+      "rl": 13705,
+      "fb": false,
+      "success": false,
+      "passed": 5,
+      "failed": 2,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 129.7,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "minimal",
+      "best_p": 5,
+      "best_f": 2,
+      "candidates": [
+        {
+          "t": 87.6,
+          "cl": 1053,
+          "rl": 9944,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 112.7,
+          "cl": 1053,
+          "rl": 12775,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 115.9,
+          "cl": 1053,
+          "rl": 12741,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 126.6,
+          "cl": 1053,
+          "rl": 14246,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 128.9,
+          "cl": 921,
+          "rl": 14059,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 129.0,
+          "cl": 1053,
+          "rl": 13433,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        }
+      ]
+    }
+  },
+  "H5_proxy_delegation": {
+    "fixture": "H5_proxy_delegation",
+    "n_tests": 10,
+    "single": {
+      "t": 48.1,
+      "cl": 982,
+      "rl": 7452,
+      "fb": false,
+      "success": true,
+      "passed": 10,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "tdd",
+      "best_p": 10,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 47.8,
+          "cl": 982,
+          "rl": 4572,
+          "fb": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 71.7,
+          "cl": 982,
+          "rl": 8651,
+          "fb": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 80.0,
+          "cl": 982,
+          "rl": 8307,
+          "fb": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 95.6,
+          "cl": 982,
+          "rl": 9029,
+          "fb": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N11_encoding": {
+    "fixture": "N11_encoding",
+    "n_tests": 7,
+    "single": {
+      "t": 162.6,
+      "cl": 402,
+      "rl": 20573,
+      "fb": false,
+      "success": false,
+      "passed": 4,
+      "failed": 3,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "adversarial",
+      "best_p": 4,
+      "best_f": 3,
+      "candidates": [
+        {
+          "t": 181.4,
+          "cl": 404,
+          "rl": 16454,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 3,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 249.9,
+          "cl": 280,
+          "rl": 20775,
+          "fb": false,
+          "success": false,
+          "passed": 3,
+          "failed": 4,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 283.7,
+          "cl": 406,
+          "rl": 23747,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 3,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N12_mutable_default": {
+    "fixture": "N12_mutable_default",
+    "n_tests": 4,
+    "single": {
+      "t": 236.7,
+      "cl": 0,
+      "rl": 28491,
+      "fb": true,
+      "success": false,
+      "passed": 2,
+      "failed": 2,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 2,
+      "best_f": 2,
+      "candidates": [
+        {
+          "t": 208.0,
+          "cl": 695,
+          "rl": 17838,
+          "fb": false,
+          "success": false,
+          "passed": 2,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 268.1,
+          "cl": 685,
+          "rl": 22147,
+          "fb": false,
+          "success": false,
+          "passed": 2,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N13_exception_chaining": {
+    "fixture": "N13_exception_chaining",
+    "n_tests": 4,
+    "single": {
+      "t": 228.3,
+      "cl": 0,
+      "rl": 33160,
+      "fb": true,
+      "success": false,
+      "passed": 3,
+      "failed": 1,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 301.3,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 0,
+      "best_f": 2,
+      "candidates": [
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N14_decimal_precision": {
+    "fixture": "N14_decimal_precision",
+    "n_tests": 5,
+    "single": {
+      "t": 173.1,
+      "cl": 414,
+      "rl": 20361,
+      "fb": false,
+      "success": false,
+      "passed": 4,
+      "failed": 1,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 301.1,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 4,
+      "best_f": 1,
+      "candidates": [
+        {
+          "t": 287.2,
+          "cl": 414,
+          "rl": 19416,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 1,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N15_config_override": {
+    "fixture": "N15_config_override",
+    "n_tests": 5,
+    "single": {
+      "t": 59.8,
+      "cl": 594,
+      "rl": 9238,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "tdd",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 86.0,
+          "cl": 594,
+          "rl": 8537,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 139.0,
+          "cl": 594,
+          "rl": 13031,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 140.1,
+          "cl": 594,
+          "rl": 13845,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 188.1,
+          "cl": 483,
+          "rl": 18244,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N16_recursive_depth": {
+    "fixture": "N16_recursive_depth",
+    "n_tests": 6,
+    "single": {
+      "t": 46.2,
+      "cl": 741,
+      "rl": 7711,
+      "fb": false,
+      "success": true,
+      "passed": 6,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 300.3,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "minimal",
+      "best_p": 6,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 75.4,
+          "cl": 741,
+          "rl": 9379,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 90.5,
+          "cl": 741,
+          "rl": 10149,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 90.7,
+          "cl": 695,
+          "rl": 9734,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 93.8,
+          "cl": 741,
+          "rl": 10620,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 177.4,
+          "cl": 741,
+          "rl": 20425,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 299.6,
+          "cl": 0,
+          "rl": 28887,
+          "fb": true,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": "unexpected indent (tree.py, line 1)",
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N17_string_escape": {
+    "fixture": "N17_string_escape",
+    "n_tests": 6,
+    "single": {
+      "t": 147.6,
+      "cl": 638,
+      "rl": 17561,
+      "fb": false,
+      "success": false,
+      "passed": 4,
+      "failed": 2,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 281.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "adversarial",
+      "best_p": 5,
+      "best_f": 1,
+      "candidates": [
+        {
+          "t": 121.9,
+          "cl": 638,
+          "rl": 10772,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 163.4,
+          "cl": 638,
+          "rl": 13131,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 205.6,
+          "cl": 413,
+          "rl": 16392,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 231.9,
+          "cl": 638,
+          "rl": 18735,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 271.6,
+          "cl": 0,
+          "rl": 22937,
+          "fb": true,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": "unterminated string literal (detected at line 4) (html_util.py, line 4)",
+          "exit": 2
+        },
+        {
+          "t": 280.3,
+          "cl": 661,
+          "rl": 23653,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 1,
+          "syntax_error": null,
+          "exit": 1
+        }
+      ]
+    }
+  },
+  "N18_input_validation": {
+    "fixture": "N18_input_validation",
+    "n_tests": 10,
+    "single": {
+      "t": 163.1,
+      "cl": 654,
+      "rl": 20361,
+      "fb": false,
+      "success": false,
+      "passed": 8,
+      "failed": 2,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 301.1,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 0,
+      "best_f": 2,
+      "candidates": [
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N19_operator_precedence": {
+    "fixture": "N19_operator_precedence",
+    "n_tests": 6,
+    "single": {
+      "t": 130.3,
+      "cl": 557,
+      "rl": 16483,
+      "fb": false,
+      "success": false,
+      "passed": 4,
+      "failed": 2,
+      "syntax_error": null,
+      "exit": 1
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "1/6",
+      "num_ok": 1,
+      "best": "tdd",
+      "best_p": 6,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 28.1,
+          "cl": 560,
+          "rl": 2389,
+          "fb": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 37.3,
+          "cl": 591,
+          "rl": 2681,
+          "fb": false,
+          "success": false,
+          "passed": 5,
+          "failed": 1,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 93.1,
+          "cl": 557,
+          "rl": 9557,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 136.5,
+          "cl": 582,
+          "rl": 15901,
+          "fb": false,
+          "success": false,
+          "passed": 4,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "N20_shallow_copy": {
+    "fixture": "N20_shallow_copy",
+    "n_tests": 5,
+    "single": {
+      "t": 133.1,
+      "cl": 714,
+      "rl": 18513,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null,
+      "exit": 0
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "3/6",
+      "num_ok": 3,
+      "best": "tdd",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "t": 83.8,
+          "cl": 749,
+          "rl": 7291,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 115.4,
+          "cl": 749,
+          "rl": 11203,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 191.6,
+          "cl": 751,
+          "rl": 17710,
+          "fb": false,
+          "success": false,
+          "passed": 3,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 1
+        },
+        {
+          "t": 274.1,
+          "cl": 729,
+          "rl": 20876,
+          "fb": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0,
+          "syntax_error": null,
+          "exit": 0
+        },
+        {
+          "t": 300.2,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        },
+        {
+          "t": 300.1,
+          "cl": 0,
+          "rl": 0,
+          "fb": false,
+          "success": false,
+          "passed": 0,
+          "failed": 2,
+          "syntax_error": null,
+          "exit": 2
+        }
+      ]
+    }
+  },
+  "extra-01": {
+    "single": {
+      "t": 27.2,
+      "cl": 556,
+      "rl": 3868,
+      "fb": false,
+      "success": true,
+      "passed": 7,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 227.1,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "root-cause",
+      "best_p": 7,
+      "best_f": 0
+    }
+  },
+  "extra-02": {
+    "single": {
+      "t": 46.8,
+      "cl": 387,
+      "rl": 6450,
+      "fb": false,
+      "success": true,
+      "passed": 6,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "tdd",
+      "best_p": 6,
+      "best_f": 0
+    }
+  },
+  "extra-03": {
+    "single": {
+      "t": 239.1,
+      "cl": 0,
+      "rl": 30125,
+      "fb": true,
+      "success": false,
+      "passed": 2,
+      "failed": 3,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.2,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "adversarial",
+      "best_p": 2,
+      "best_f": 3
+    }
+  },
+  "extra-04": {
+    "single": {
+      "t": 198.4,
+      "cl": 451,
+      "rl": 22621,
+      "fb": false,
+      "success": false,
+      "passed": 3,
+      "failed": 3,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.1,
+      "oracle": "2/6",
+      "num_ok": 2,
+      "best": "alternative",
+      "best_p": 6,
+      "best_f": 0
+    }
+  },
+  "extra-05": {
+    "single": {
+      "t": 56.1,
+      "cl": 409,
+      "rl": 7666,
+      "fb": false,
+      "success": true,
+      "passed": 2,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 280.7,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 2,
+      "best_f": 0
+    }
+  },
+  "extra-06": {
+    "single": {
+      "t": 41.4,
+      "cl": 579,
+      "rl": 6228,
+      "fb": false,
+      "success": true,
+      "passed": 4,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "tdd",
+      "best_p": 4,
+      "best_f": 0
+    }
+  },
+  "extra-07": {
+    "single": {
+      "t": 160.0,
+      "cl": 398,
+      "rl": 23040,
+      "fb": false,
+      "success": false,
+      "passed": 3,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.1,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "architecture",
+      "best_p": 3,
+      "best_f": 1
+    }
+  },
+  "extra-08": {
+    "single": {
+      "t": 105.6,
+      "cl": 622,
+      "rl": 10748,
+      "fb": false,
+      "success": false,
+      "passed": 3,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.2,
+      "oracle": "1/6",
+      "num_ok": 1,
+      "best": "tdd",
+      "best_p": 4,
+      "best_f": 0
+    }
+  },
+  "extra-09": {
+    "single": {
+      "t": 125.9,
+      "cl": 400,
+      "rl": 15431,
+      "fb": false,
+      "success": false,
+      "passed": 2,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.2,
+      "oracle": "1/6",
+      "num_ok": 1,
+      "best": "alternative",
+      "best_p": 3,
+      "best_f": 0
+    }
+  },
+  "extra-10": {
+    "single": {
+      "t": 82.1,
+      "cl": 741,
+      "rl": 11428,
+      "fb": false,
+      "success": true,
+      "passed": 4,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 185.6,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 4,
+      "best_f": 0
+    }
+  },
+  "extra-11": {
+    "single": {
+      "t": 42.4,
+      "cl": 649,
+      "rl": 6310,
+      "fb": false,
+      "success": true,
+      "passed": 2,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 196.7,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "architecture",
+      "best_p": 2,
+      "best_f": 0
+    }
+  },
+  "extra-12": {
+    "single": {
+      "t": 34.1,
+      "cl": 556,
+      "rl": 5708,
+      "fb": false,
+      "success": true,
+      "passed": 4,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 110.7,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "architecture",
+      "best_p": 4,
+      "best_f": 0
+    }
+  },
+  "extra-13": {
+    "single": {
+      "t": 78.4,
+      "cl": 382,
+      "rl": 10474,
+      "fb": false,
+      "success": false,
+      "passed": 2,
+      "failed": 2,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 233.7,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 2,
+      "best_f": 2
+    }
+  },
+  "extra-14": {
+    "single": {
+      "t": 97.1,
+      "cl": 656,
+      "rl": 13992,
+      "fb": false,
+      "success": true,
+      "passed": 4,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.1,
+      "oracle": "3/6",
+      "num_ok": 3,
+      "best": "architecture",
+      "best_p": 4,
+      "best_f": 0
+    }
+  },
+  "extra-15": {
+    "single": {
+      "t": 109.2,
+      "cl": 297,
+      "rl": 13712,
+      "fb": false,
+      "success": false,
+      "passed": 0,
+      "failed": 2,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.1,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "tdd",
+      "best_p": 0,
+      "best_f": 2
+    }
+  },
+  "extra-16": {
+    "single": {
+      "t": 51.3,
+      "cl": 427,
+      "rl": 6732,
+      "fb": false,
+      "success": true,
+      "passed": 3,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 296.3,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "tdd",
+      "best_p": 3,
+      "best_f": 0
+    }
+  },
+  "extra-17": {
+    "single": {
+      "t": 207.1,
+      "cl": 467,
+      "rl": 25493,
+      "fb": false,
+      "success": false,
+      "passed": 3,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 3,
+      "best_f": 1
+    }
+  },
+  "extra-18": {
+    "single": {
+      "t": 19.1,
+      "cl": 501,
+      "rl": 3338,
+      "fb": false,
+      "success": true,
+      "passed": 3,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 88.2,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 3,
+      "best_f": 0
+    }
+  },
+  "extra-19": {
+    "single": {
+      "t": 292.5,
+      "cl": 0,
+      "rl": 30984,
+      "fb": true,
+      "success": false,
+      "passed": 0,
+      "failed": 2,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 1,
+      "best_f": 1
+    }
+  },
+  "extra-20": {
+    "single": {
+      "t": 174.5,
+      "cl": 0,
+      "rl": 27733,
+      "fb": true,
+      "success": false,
+      "passed": 0,
+      "failed": 2,
+      "syntax_error": "expected an indented block after function definition on line 1 (serializer.py, line 2)"
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "2/6",
+      "num_ok": 2,
+      "best": "alternative",
+      "best_p": 7,
+      "best_f": 0
+    }
+  },
+  "extra-21": {
+    "single": {
+      "t": 103.5,
+      "cl": 438,
+      "rl": 13221,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "root-cause",
+      "best_p": 5,
+      "best_f": 0
+    }
+  },
+  "extra-22": {
+    "single": {
+      "t": 167.5,
+      "cl": 429,
+      "rl": 18927,
+      "fb": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "3/6",
+      "num_ok": 3,
+      "best": "architecture",
+      "best_p": 5,
+      "best_f": 0
+    }
+  },
+  "extra-23": {
+    "single": {
+      "t": 121.1,
+      "cl": 637,
+      "rl": 17091,
+      "fb": false,
+      "success": false,
+      "passed": 1,
+      "failed": 3,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "alternative",
+      "best_p": 1,
+      "best_f": 3
+    }
+  },
+  "extra-24": {
+    "single": {
+      "t": 131.9,
+      "cl": 315,
+      "rl": 17220,
+      "fb": false,
+      "success": true,
+      "passed": 2,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 300.9,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "alternative",
+      "best_p": 2,
+      "best_f": 0
+    }
+  },
+  "extra-25": {
+    "single": {
+      "t": 162.4,
+      "cl": 195,
+      "rl": 18270,
+      "fb": false,
+      "success": false,
+      "passed": 0,
+      "failed": 2,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "architecture",
+      "best_p": 0,
+      "best_f": 2
+    }
+  },
+  "extra-26": {
+    "single": {
+      "t": 25.5,
+      "cl": 746,
+      "rl": 4485,
+      "fb": false,
+      "success": false,
+      "passed": 1,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "minimal",
+      "best_p": 1,
+      "best_f": 1
+    }
+  },
+  "extra-27": {
+    "single": {
+      "t": 98.2,
+      "cl": 691,
+      "rl": 13087,
+      "fb": false,
+      "success": true,
+      "passed": 2,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "alternative",
+      "best_p": 2,
+      "best_f": 0
+    }
+  },
+  "extra-28": {
+    "single": {
+      "t": 67.3,
+      "cl": 525,
+      "rl": 10094,
+      "fb": false,
+      "success": true,
+      "passed": 3,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 297.2,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "minimal",
+      "best_p": 3,
+      "best_f": 0
+    }
+  },
+  "extra-29": {
+    "single": {
+      "t": 50.8,
+      "cl": 740,
+      "rl": 7335,
+      "fb": false,
+      "success": true,
+      "passed": 3,
+      "failed": 0,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.0,
+      "oracle": "4/6",
+      "num_ok": 4,
+      "best": "minimal",
+      "best_p": 3,
+      "best_f": 0
+    }
+  },
+  "extra-30": {
+    "single": {
+      "t": 199.0,
+      "cl": 907,
+      "rl": 33635,
+      "fb": false,
+      "success": false,
+      "passed": 2,
+      "failed": 1,
+      "syntax_error": null
+    },
+    "multi": {
+      "wall_sec": 301.2,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "best": "root-cause",
+      "best_p": 0,
+      "best_f": 2
+    }
+  }
+}

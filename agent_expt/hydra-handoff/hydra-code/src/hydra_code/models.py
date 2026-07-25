@@ -152,6 +152,8 @@ class RunConfig:
     retry_max_delay: float = 60.0
     gpu_monitor_url: str = "http://127.0.0.1:8000/metrics"
     enable_gpu_scaling: bool = True
+    use_local_api: bool = False
+    max_tokens: int = 8192
 
     @classmethod
     def from_task_file(cls, task_file: Path, **kwargs: Any) -> RunConfig:
@@ -320,6 +322,8 @@ class TournamentResult:
     vote_counts: dict[str, int] = field(default_factory=dict)
     is_tie: bool = False
     needs_distinguishing_test: bool = False
+    tie_breaker: str = ""
+    distinguishing_test: str = ""
 
 
 @dataclass

@@ -1,0 +1,151 @@
+{
+  "single": {
+    "candidates": [
+      {
+        "strategy": "single (tdd)",
+        "time_sec": 98.5,
+        "content_len": 922,
+        "reasoning_len": 13220,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      }
+    ],
+    "wall_time_sec": 98.6,
+    "num_solved": 1,
+    "num_conceptual": 1,
+    "best": {
+      "strategy": "single (tdd)",
+      "time_sec": 98.5,
+      "content_len": 922,
+      "reasoning_len": 13220,
+      "finish_reason": "stop",
+      "has_auth_check": true,
+      "has_netloc_rebuild": true,
+      "has_urlunparse": true,
+      "applied": true,
+      "passed": 2,
+      "failed": 0,
+      "total": 2,
+      "success": true
+    }
+  },
+  "multi": {
+    "candidates": [
+      {
+        "strategy": "alternative",
+        "time_sec": 171.7,
+        "content_len": 922,
+        "reasoning_len": 13289,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      },
+      {
+        "strategy": "architecture",
+        "time_sec": 180.9,
+        "content_len": 923,
+        "reasoning_len": 15159,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      },
+      {
+        "strategy": "minimal",
+        "time_sec": 200.4,
+        "content_len": 916,
+        "reasoning_len": 16305,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      },
+      {
+        "strategy": "tdd",
+        "time_sec": 209.8,
+        "content_len": 632,
+        "reasoning_len": 17739,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      },
+      {
+        "strategy": "root-cause",
+        "time_sec": 211.2,
+        "content_len": 506,
+        "reasoning_len": 18625,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      },
+      {
+        "strategy": "adversarial",
+        "time_sec": 221.2,
+        "content_len": 624,
+        "reasoning_len": 17317,
+        "finish_reason": "stop",
+        "has_auth_check": true,
+        "has_netloc_rebuild": true,
+        "has_urlunparse": true,
+        "applied": true,
+        "passed": 2,
+        "failed": 0,
+        "total": 2,
+        "success": true
+      }
+    ],
+    "wall_time_sec": 221.3,
+    "num_solved": 6,
+    "num_conceptual": 6,
+    "best": {
+      "strategy": "alternative",
+      "time_sec": 171.7,
+      "content_len": 922,
+      "reasoning_len": 13289,
+      "finish_reason": "stop",
+      "has_auth_check": true,
+      "has_netloc_rebuild": true,
+      "has_urlunparse": true,
+      "applied": true,
+      "passed": 2,
+      "failed": 0,
+      "total": 2,
+      "success": true
+    }
+  }
+}

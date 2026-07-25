@@ -56,40 +56,54 @@ def build_refinement_packet(
 def build_refinement_prompt(
     packet: RefinementPacket,
     context_packet: str,
+    test_error_output: str = "",
 ) -> str:
-    """Build the refinement prompt from a distilled packet."""
+    """Build the refinement prompt from a distilled packet.
+
+    FIX: Includes actual test error output as feedback signal.
+    The test error output is the most powerful refinement signal.
+    """
     prompt = f"""# Refinement Task
 
 You are refining candidate {packet.parent_candidate_id}.
 
 ## Context
-{context_packet}
+{context_packet[:1500]}
 
 ## Useful Discoveries from Other Candidates
 """
-    for d in packet.useful_discoveries:
+    for d in packet.useful_discoveries[:5]:
         prompt += f"- {d}\n"
 
     prompt += "\n## Failed Approaches to Avoid\n"
-    for f in packet.failed_approaches:
+    for f in packet.failed_approaches[:5]:
         prompt += f"- {f}\n"
 
-    prompt += "\n## Tournament Feedback\n"
-    for fb in packet.tournament_feedback:
-        prompt += f"- {fb}\n"
+    if test_error_output:
+        prompt += f"""
+
+## TEST FAILURE FEEDBACK (critical)
+The previous fix FAILED these tests. Fix the code to pass them:
+
+```
+{test_error_output[:1500]}
+```
+
+Analyze each failure above and fix the root cause.
+"""
 
     prompt += "\n## Remaining Uncertainty\n"
-    for u in packet.remaining_uncertainty:
+    for u in packet.remaining_uncertainty[:5]:
         prompt += f"- {u}\n"
 
     prompt += """
 ## Instructions
-1. Review the parent candidate's changes.
-2. Incorporate useful discoveries from other candidates.
-3. Address remaining failures and risks.
+1. Review the test failures above — they tell you exactly what's wrong.
+2. Fix the ROOT CAUSE of each failure, not just the symptom.
+3. Incorporate useful discoveries from other candidates.
 4. Avoid the listed failed approaches.
-5. Improve the implementation without introducing regressions.
-6. Return a refined trajectory summary.
+5. Do NOT weaken or remove existing tests.
+6. Return ONLY the corrected source file inside ```python.
 """
     return prompt
 

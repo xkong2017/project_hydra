@@ -1,0 +1,94 @@
+{
+  "single": {
+    "mode": "single-call",
+    "api_time_sec": 12.2,
+    "total_time_sec": 12.2,
+    "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\nfrom typing import Any, Sequence\n\n\ndef get_page(items: Sequence[Any], page: int, per_page: int) -> list[Any]:\n    \"\"\"Return a page of items.\n\n    Args:\n    ",
+    "code_preview": "\"\"\"Simple pagination utility.\"\"\"\n\nfrom typing import Any, Sequence\n\n\ndef get_page(items: Sequence[Any], page: int, per_page: int) -> list[Any]:\n    \"\"\"Return a page of items.\n\n    Args:\n        items:",
+    "passed": 7,
+    "failed": 1,
+    "exit_code": 1,
+    "has_correct_fix": true,
+    "success": false,
+    "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmp5qxbfpf4/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+  },
+  "multi": {
+    "mode": "multi-agent",
+    "total_time_sec": 84.5,
+    "avg_api_time_sec": 13.4,
+    "total_api_time_sec": 80.6,
+    "num_successful": 0,
+    "num_candidates": 6,
+    "best_candidate": "minimal",
+    "overall_success": false,
+    "overall_has_correct_fix": true,
+    "candidates": [
+      {
+        "strategy": "minimal",
+        "api_time_sec": 8.6,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 7,
+        "failed": 1,
+        "exit_code": 1,
+        "has_correct_fix": true,
+        "success": false,
+        "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmpq7gph749/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+      },
+      {
+        "strategy": "robust",
+        "api_time_sec": 16.3,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\nfrom typing import List, TypeVar\n\nT = TypeVar('T')\n\n\ndef get_page(items: List[T], page: int, per_page: int",
+        "passed": 7,
+        "failed": 1,
+        "exit_code": 1,
+        "has_correct_fix": true,
+        "success": false,
+        "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmpabm3td8t/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+      },
+      {
+        "strategy": "tdd",
+        "api_time_sec": 6.0,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 7,
+        "failed": 1,
+        "exit_code": 1,
+        "has_correct_fix": true,
+        "success": false,
+        "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmpsmfe2d1t/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+      },
+      {
+        "strategy": "root-cause",
+        "api_time_sec": 9.1,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 7,
+        "failed": 1,
+        "exit_code": 1,
+        "has_correct_fix": true,
+        "success": false,
+        "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmpr7xbv4x_/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+      },
+      {
+        "strategy": "adversarial",
+        "api_time_sec": 34.4,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 7,
+        "failed": 1,
+        "exit_code": 1,
+        "has_correct_fix": true,
+        "success": false,
+        "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmpuu_fchqm/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+      },
+      {
+        "strategy": "architecture",
+        "api_time_sec": 6.1,
+        "response_preview": "```python\n\"\"\"Simple pagination utility.\"\"\"\n\n\ndef get_page(items, page, per_page):\n    \"\"\"Return a page of items.\n\n    Args:\n        items: List of ite",
+        "passed": 7,
+        "failed": 1,
+        "exit_code": 1,
+        "has_correct_fix": true,
+        "success": false,
+        "stdout": "t extra item: 13\n      Use -v to get more diff\n/tmp/tmpyq781hba/test_pagination.py:25: assert [] == [13, 14, 15]\n=========================== short test summary info ============================\nFAILED test_pagination.py::test_last_page_partial - assert [] == [13, 14, 15]\n1 failed, 7 passed in 0.08s\n"
+      }
+    ]
+  }
+}

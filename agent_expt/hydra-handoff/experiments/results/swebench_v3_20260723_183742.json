@@ -1,0 +1,67 @@
+{
+  "psf__requests-6028": {
+    "single": {
+      "strategy": "tdd",
+      "api_time_sec": 225.4,
+      "response_len": 0,
+      "reasoning_len": 0,
+      "conceptual_fix": false,
+      "response_preview": ""
+    },
+    "multi": {
+      "wall_time_sec": 386.5,
+      "oracle": "0/6",
+      "num_ok": 0,
+      "candidates": [
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 204.0,
+          "response_len": 0,
+          "reasoning_len": 0,
+          "conceptual_fix": false,
+          "response_preview": ""
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 206.2,
+          "response_len": 0,
+          "reasoning_len": 0,
+          "conceptual_fix": false,
+          "response_preview": ""
+        },
+        {
+          "strategy": "alternative",
+          "api_time_sec": 258.3,
+          "response_len": 0,
+          "reasoning_len": 0,
+          "conceptual_fix": false,
+          "response_preview": ""
+        },
+        {
+          "strategy": "tdd",
+          "api_time_sec": 282.5,
+          "response_len": 0,
+          "reasoning_len": 0,
+          "conceptual_fix": false,
+          "response_preview": ""
+        },
+        {
+          "strategy": "minimal",
+          "api_time_sec": 351.3,
+          "response_len": 0,
+          "reasoning_len": 0,
+          "conceptual_fix": false,
+          "response_preview": ""
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 386.4,
+          "response_len": 0,
+          "reasoning_len": 0,
+          "conceptual_fix": false,
+          "response_preview": ""
+        }
+      ]
+    }
+  }
+}

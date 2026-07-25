@@ -310,16 +310,26 @@ class Orchestrator:
         if strategy_angle:
             prompt += f"\n## Approach: {strategy_angle}\n"
 
-        # Run Claude session
+        # Run session — use local API or Claude CLI
         from .claude_runner import ClaudeRunner, RunnerConfig
+        from .local_api_runner import LocalApiRunner, RunnerConfig as LocalRunnerConfig
 
-        runner = ClaudeRunner(
-            RunnerConfig(
-                max_turns=self.config.max_turns,
-                timeout_seconds=self.config.agent_timeout_seconds,
-                claude_binary=self.config.claude_binary or "claude",
+        if self.config.use_local_api:
+            runner: ClaudeRunner | LocalApiRunner = LocalApiRunner(
+                LocalRunnerConfig(
+                    timeout_seconds=self.config.agent_timeout_seconds,
+                    max_tokens=self.config.max_tokens or 8192,
+                    temperature=0.3,
+                )
             )
-        )
+        else:
+            runner = ClaudeRunner(
+                RunnerConfig(
+                    max_turns=self.config.max_turns,
+                    timeout_seconds=self.config.agent_timeout_seconds,
+                    claude_binary=self.config.claude_binary or "claude",
+                )
+            )
 
         output_dir = self.run_dir / "candidates" / candidate_id
         output_dir.mkdir(parents=True, exist_ok=True)

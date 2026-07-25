@@ -1,0 +1,119 @@
+{
+  "config": {
+    "model": "qwen",
+    "max_tokens": 8192,
+    "concurrency": 6,
+    "fixture": "requests_6028"
+  },
+  "single": {
+    "strategy": "tdd",
+    "api_time_sec": 29.3,
+    "content_len": 3169,
+    "reasoning_len": 2294,
+    "used_reasoning_fallback": false,
+    "code_len": 3153,
+    "code_preview": "\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nBUGGY VERSION: auth info (user:pass@) is dropped when reconstructing URL.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport re\nfrom urllib.par",
+    "success": true,
+    "passed": 5,
+    "failed": 0,
+    "exit_code": 0,
+    "pytest_output": ".....                                                                    [100%]\n5 passed in 0.08s\n",
+    "has_auth_reconstruction": true
+  },
+  "multi": {
+    "candidates": [
+      {
+        "strategy": "minimal",
+        "api_time_sec": 41.5,
+        "content_len": 3122,
+        "reasoning_len": 1787,
+        "used_reasoning_fallback": false,
+        "code_len": 3106,
+        "code_preview": "\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nBUGGY VERSION: auth info (user:pass@) is dropped when reconstructing URL.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport re\nfrom urllib.par",
+        "success": true,
+        "passed": 5,
+        "failed": 0,
+        "exit_code": 0,
+        "pytest_output": ".....                                                                    [100%]\n5 passed in 0.18s\n",
+        "has_auth_reconstruction": true
+      },
+      {
+        "strategy": "tdd",
+        "api_time_sec": 101.9,
+        "content_len": 3122,
+        "reasoning_len": 9489,
+        "used_reasoning_fallback": false,
+        "code_len": 3106,
+        "code_preview": "\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nBUGGY VERSION: auth info (user:pass@) is dropped when reconstructing URL.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport re\nfrom urllib.par",
+        "success": true,
+        "passed": 5,
+        "failed": 0,
+        "exit_code": 0,
+        "pytest_output": ".....                                                                    [100%]\n5 passed in 0.15s\n",
+        "has_auth_reconstruction": true
+      },
+      {
+        "strategy": "root-cause",
+        "api_time_sec": 146.4,
+        "content_len": 3103,
+        "reasoning_len": 14307,
+        "used_reasoning_fallback": false,
+        "code_len": 3087,
+        "code_preview": "\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nFIXED VERSION: auth info (user:pass@) is correctly re-included in the reconstructed URL.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport re\n",
+        "success": true,
+        "passed": 5,
+        "failed": 0,
+        "exit_code": 0,
+        "pytest_output": ".....                                                                    [100%]\n5 passed in 0.16s\n",
+        "has_auth_reconstruction": true
+      },
+      {
+        "strategy": "alternative",
+        "api_time_sec": 159.0,
+        "content_len": 3164,
+        "reasoning_len": 11085,
+        "used_reasoning_fallback": false,
+        "code_len": 3148,
+        "code_preview": "\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nFIXED VERSION: auth info (user:pass@) is preserved by avoiding\nparse-and-reconstruct entirely. Instead of decomposing the URL and\nreassembli",
+        "success": true,
+        "passed": 5,
+        "failed": 0,
+        "exit_code": 0,
+        "pytest_output": ".....                                                                    [100%]\n5 passed in 0.16s\n",
+        "has_auth_reconstruction": false
+      },
+      {
+        "strategy": "adversarial",
+        "api_time_sec": 161.2,
+        "content_len": 3106,
+        "reasoning_len": 14378,
+        "used_reasoning_fallback": false,
+        "code_len": 3090,
+        "code_preview": "\"\"\"URL utilities \u2014 mirrors the bug from psf/requests#6028.\n\nFIXED VERSION: auth info (user:pass@) is correctly re-included when reconstructing URL.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport re\nf",
+        "success": true,
+        "passed": 5,
+        "failed": 0,
+        "exit_code": 0,
+        "pytest_output": ".....                                                                    [100%]\n5 passed in 0.13s\n",
+        "has_auth_reconstruction": true
+      },
+      {
+        "strategy": "architecture",
+        "api_time_sec": 252.2,
+        "content_len": 0,
+        "reasoning_len": 29657,
+        "used_reasoning_fallback": true,
+        "code_len": 84,
+        "code_preview": "    netloc = parsed[\"netloc\"]\n    if not netloc:\n        netloc, path = path, netloc",
+        "success": false,
+        "passed": 0,
+        "failed": 0,
+        "exit_code": 2,
+        "pytest_output": "===========================\nERROR test_url_utils.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.16s\n",
+        "has_auth_reconstruction": false
+      }
+    ],
+    "total_time_sec": 253.0,
+    "oracle_pass": "5/6"
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "H1_variable_scope": {
+    "single": {
+      "strategy": "tdd",
+      "api_time_sec": 32.0,
+      "content_len": 1071,
+      "reasoning_len": 4998,
+      "used_fallback": false,
+      "syntax_error": false,
+      "success": true,
+      "passed": 6,
+      "failed": 0
+    },
+    "multi": {
+      "wall_time_sec": 83.6,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 6,
+      "best_f": 0,
+      "candidates": [
+        {
+          "strategy": "tdd",
+          "api_time_sec": 17.7,
+          "content_len": 1080,
+          "reasoning_len": 944,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 43.8,
+          "content_len": 1087,
+          "reasoning_len": 4648,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 51.6,
+          "content_len": 1071,
+          "reasoning_len": 5208,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "strategy": "alternative",
+          "api_time_sec": 60.1,
+          "content_len": 1071,
+          "reasoning_len": 6731,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "strategy": "minimal",
+          "api_time_sec": 63.1,
+          "content_len": 1229,
+          "reasoning_len": 6820,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 82.9,
+          "content_len": 1081,
+          "reasoning_len": 9399,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 6,
+          "failed": 0
+        }
+      ]
+    }
+  },
+  "H2_cache_stale": {
+    "single": {
+      "strategy": "tdd",
+      "api_time_sec": 10.6,
+      "content_len": 672,
+      "reasoning_len": 1375,
+      "used_fallback": false,
+      "syntax_error": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0
+    },
+    "multi": {
+      "wall_time_sec": 348.0,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "tdd",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "strategy": "tdd",
+          "api_time_sec": 11.4,
+          "content_len": 672,
+          "reasoning_len": 512,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 81.2,
+          "content_len": 539,
+          "reasoning_len": 6034,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "minimal",
+          "api_time_sec": 86.1,
+          "content_len": 530,
+          "reasoning_len": 8558,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 108.2,
+          "content_len": 537,
+          "reasoning_len": 10096,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 161.3,
+          "content_len": 928,
+          "reasoning_len": 12680,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "alternative",
+          "api_time_sec": 347.2,
+          "content_len": 0,
+          "reasoning_len": 30882,
+          "used_fallback": true,
+          "syntax_error": true,
+          "success": false,
+          "passed": 0,
+          "failed": 0
+        }
+      ]
+    }
+  },
+  "H3_shared_state": {
+    "single": {
+      "strategy": "tdd",
+      "api_time_sec": 6.7,
+      "content_len": 1296,
+      "reasoning_len": 403,
+      "used_fallback": false,
+      "syntax_error": false,
+      "success": true,
+      "passed": 5,
+      "failed": 0
+    },
+    "multi": {
+      "wall_time_sec": 63.1,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "tdd",
+      "best_p": 5,
+      "best_f": 0,
+      "candidates": [
+        {
+          "strategy": "tdd",
+          "api_time_sec": 13.8,
+          "content_len": 1296,
+          "reasoning_len": 598,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 14.0,
+          "content_len": 1295,
+          "reasoning_len": 526,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "alternative",
+          "api_time_sec": 26.0,
+          "content_len": 1178,
+          "reasoning_len": 2588,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "minimal",
+          "api_time_sec": 31.0,
+          "content_len": 1295,
+          "reasoning_len": 3255,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 37.1,
+          "content_len": 1207,
+          "reasoning_len": 4658,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 62.4,
+          "content_len": 1166,
+          "reasoning_len": 7242,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 5,
+          "failed": 0
+        }
+      ]
+    }
+  },
+  "H4_exception_silence": {
+    "single": {
+      "strategy": "tdd",
+      "api_time_sec": 40.1,
+      "content_len": 1041,
+      "reasoning_len": 7548,
+      "used_fallback": false,
+      "syntax_error": false,
+      "success": true,
+      "passed": 7,
+      "failed": 0
+    },
+    "multi": {
+      "wall_time_sec": 76.3,
+      "oracle": "6/6",
+      "num_ok": 6,
+      "best": "minimal",
+      "best_p": 7,
+      "best_f": 0,
+      "candidates": [
+        {
+          "strategy": "minimal",
+          "api_time_sec": 47.0,
+          "content_len": 1041,
+          "reasoning_len": 5270,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0
+        },
+        {
+          "strategy": "tdd",
+          "api_time_sec": 49.8,
+          "content_len": 1041,
+          "reasoning_len": 5761,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0
+        },
+        {
+          "strategy": "architecture",
+          "api_time_sec": 57.4,
+          "content_len": 921,
+          "reasoning_len": 7184,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0
+        },
+        {
+          "strategy": "alternative",
+          "api_time_sec": 65.7,
+          "content_len": 1041,
+          "reasoning_len": 8308,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 66.3,
+          "content_len": 905,
+          "reasoning_len": 8368,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 75.6,
+          "content_len": 1041,
+          "reasoning_len": 10303,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 7,
+          "failed": 0
+        }
+      ]
+    }
+  },
+  "H5_proxy_delegation": {
+    "single": {
+      "strategy": "tdd",
+      "api_time_sec": 43.6,
+      "content_len": 978,
+      "reasoning_len": 7384,
+      "used_fallback": false,
+      "syntax_error": false,
+      "success": true,
+      "passed": 10,
+      "failed": 0
+    },
+    "multi": {
+      "wall_time_sec": 289.1,
+      "oracle": "5/6",
+      "num_ok": 5,
+      "best": "architecture",
+      "best_p": 10,
+      "best_f": 0,
+      "candidates": [
+        {
+          "strategy": "architecture",
+          "api_time_sec": 12.1,
+          "content_len": 982,
+          "reasoning_len": 430,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0
+        },
+        {
+          "strategy": "minimal",
+          "api_time_sec": 45.2,
+          "content_len": 982,
+          "reasoning_len": 4982,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0
+        },
+        {
+          "strategy": "root-cause",
+          "api_time_sec": 48.9,
+          "content_len": 982,
+          "reasoning_len": 5280,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0
+        },
+        {
+          "strategy": "tdd",
+          "api_time_sec": 49.7,
+          "content_len": 982,
+          "reasoning_len": 5403,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0
+        },
+        {
+          "strategy": "alternative",
+          "api_time_sec": 54.9,
+          "content_len": 982,
+          "reasoning_len": 6007,
+          "used_fallback": false,
+          "syntax_error": false,
+          "success": true,
+          "passed": 10,
+          "failed": 0
+        },
+        {
+          "strategy": "adversarial",
+          "api_time_sec": 288.5,
+          "content_len": 0,
+          "reasoning_len": 31471,
+          "used_fallback": true,
+          "syntax_error": false,
+          "success": false,
+          "passed": 1,
+          "failed": 9
+        }
+      ]
+    }
+  }
+}
