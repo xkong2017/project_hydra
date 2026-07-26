@@ -144,28 +144,49 @@ class LocalApiRunner:
                 return ("", "", f"error: {e}")
 
     async def _extract_trajectory(self, content: str, reasoning: str) -> dict:
-        """FIX: Call second API to extract structured trajectory summary from rollout output."""
-        prompt = f"""Analyze this bug-fix attempt and return JSON with exactly these fields:
+        """FIX 1: Two-stage hierarchical distillation.
+
+        Stage 1: Extract ALL observations (raw extraction).
+        Stage 2: Condense observations into structured summary.
+        """
+        full_text = content + "\n" + reasoning
+        if len(full_text) < 100:
+            return {"root_cause_hypotheses": [], "evidence_for": [], "evidence_against": [],
+                    "useful_discoveries": [], "failed_approaches": [], "remaining_uncertainty": []}
+
+        # Stage 1: Raw extraction — gather all observations
+        stage1_prompt = f"""Extract every observation, insight, and finding from this bug-fix attempt.
+Be exhaustive — list everything the attempt discovered, even if it seems minor.
+
+Return JSON with:
+{{"observations":["each distinct observation"]}}
+
+Fix attempt:
+{full_text[:3000]}"""
+        c1, r1, _ = await self._call_api(stage1_prompt, "You extract raw observations from debugging sessions. Be exhaustive.")
+        raw_obs_text = c1 or r1
+
+        # Stage 2: Condensation — distill observations into structured summary
+        stage2_prompt = f"""Condense these observations into a structured analysis.
+
+Return JSON with these fields:
 {{
-  "root_cause_hypotheses": ["what caused the bug"],
-  "evidence_for": ["observations supporting the hypothesis"],
-  "evidence_against": ["observations against it"],
-  "useful_discoveries": ["things learned during this attempt"],
-  "failed_approaches": ["approaches tried that didn't work"],
-  "remaining_uncertainty": ["what's still unclear"]
+  "root_cause_hypotheses": ["2-3 most likely root causes, ranked by plausibility"],
+  "evidence_for": ["observations that SUPPORT each hypothesis"],
+  "evidence_against": ["observations that CONTRADICT each hypothesis"],
+  "useful_discoveries": ["important things learned that could help other approaches"],
+  "failed_approaches": ["specific approaches attempted that did NOT work and why"],
+  "remaining_uncertainty": ["what is still unknown or unclear"]
 }}
 
-Fix attempt output:
-{content[:2000]}
+Raw observations:
+{raw_obs_text[:2000]}
 
-Reasoning (if any):
-{reasoning[:2000]}
+Return ONLY valid JSON."""
+        c2, r2, _ = await self._call_api(stage2_prompt, "You synthesize structured analysis from observations. Return only valid JSON.")
 
-Return ONLY valid JSON, no other text."""
-        c, r, _ = await self._call_api(prompt, "You extract structured summaries from bug-fix attempts. Return only valid JSON.")
-        import json as j
-        for text in [c, r]:
-            import re
+        import json as j, re
+        for text in [c2, r2]:
             m = re.search(r"\{.*\}", text, re.DOTALL)
             if m:
                 try:
@@ -251,16 +272,12 @@ Return ONLY valid JSON, no other text."""
                         target.write_text(fix_content)
                         stderr_path.write_text(f"Applied fix to: {target}")
 
-                # FIX: Extract structured trajectory summary
-                traj_data = await self._extract_trajectory(content, reasoning)
+                # Trajectory extraction disabled by default — experiments showed
+                # Qwen3 trajectory summaries add noise vs signal, degrading refinement.
+                # The test-feedback loop on original source code is more effective.
                 trajectory = self._parse_trajectory_from_text(
                     content + "\n" + reasoning, worktree_path
                 )
-                trajectory.root_cause_hypotheses = traj_data.get("root_cause_hypotheses", [])
-                trajectory.evidence_for = traj_data.get("evidence_for", [])
-                trajectory.evidence_against = traj_data.get("evidence_against", [])
-                trajectory.useful_discoveries = traj_data.get("useful_discoveries", [])
-                trajectory.failed_approaches = traj_data.get("failed_approaches", [])
 
                 return CandidateResult(
                     candidate_id=candidate_id, role=role or CandidateRole.MINIMAL,
