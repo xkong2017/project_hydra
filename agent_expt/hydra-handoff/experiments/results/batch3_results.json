@@ -1,0 +1,302 @@
+{
+  "batch3-01": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 11.0
+  },
+  "batch3-02": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 10.3
+  },
+  "batch3-03": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.1
+  },
+  "batch3-04": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.6
+  },
+  "batch3-05": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 8.3
+  },
+  "batch3-06": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 6.8
+  },
+  "batch3-07": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 4.8
+  },
+  "batch3-08": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.8
+  },
+  "batch3-09": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.0
+  },
+  "batch3-10": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 8.7
+  },
+  "batch3-11": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.8
+  },
+  "batch3-12": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 11.6
+  },
+  "batch3-13": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 8.3
+  },
+  "batch3-14": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 4.0
+  },
+  "batch3-15": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 11.5
+  },
+  "batch3-16": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 7.1
+  },
+  "batch3-17": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 4.6
+  },
+  "batch3-18": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 10.0
+  },
+  "batch3-19": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.9
+  },
+  "batch3-20": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.3
+  },
+  "batch3-21": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 4.9
+  },
+  "batch3-22": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 6.1
+  },
+  "batch3-23": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.0
+  },
+  "batch3-24": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 6.6
+  },
+  "batch3-25": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 7.5
+  },
+  "batch3-26": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 6.5
+  },
+  "batch3-27": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 14.8
+  },
+  "batch3-28": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 12.2
+  },
+  "batch3-29": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 4.5
+  },
+  "batch3-30": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.4
+  },
+  "batch3-31": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.2
+  },
+  "batch3-32": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 9.9
+  },
+  "batch3-33": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 13.1
+  },
+  "batch3-34": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 3.9
+  },
+  "batch3-35": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.4
+  },
+  "batch3-36": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 3.9
+  },
+  "batch3-37": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 7.8
+  },
+  "batch3-38": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 7.9
+  },
+  "batch3-39": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.1
+  },
+  "batch3-40": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 11.7
+  },
+  "batch3-41": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.3
+  },
+  "batch3-42": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 9.3
+  },
+  "batch3-43": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 9.9
+  },
+  "batch3-44": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.2
+  },
+  "batch3-45": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 12.2
+  },
+  "batch3-46": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 6.1
+  },
+  "batch3-47": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 7.9
+  },
+  "batch3-48": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 5.0
+  },
+  "batch3-49": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 11.8
+  },
+  "batch3-50": {
+    "phase": 1,
+    "success": true,
+    "passed": 4,
+    "t": 4.8
+  }
+}

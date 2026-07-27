@@ -1,0 +1,42 @@
+{
+  "swebench-real-01": {
+    "solved": "R1",
+    "strat": "tdd",
+    "t": 179.2707173009985,
+    "passed": 3
+  },
+  "swebench-real-02": {
+    "solved": "FAIL",
+    "strat": "refine",
+    "t": 274.9767032050004,
+    "passed": 1,
+    "failed": 1
+  },
+  "swebench-real-03": {
+    "solved": "R1",
+    "strat": "tdd",
+    "t": 38.98169318897999,
+    "passed": 3
+  },
+  "swebench-real-04": {
+    "solved": "FAIL",
+    "strat": "refine",
+    "t": 223.77660445900983,
+    "passed": 2,
+    "failed": 1
+  },
+  "swebench-real-05": {
+    "solved": "FAIL",
+    "strat": "refine",
+    "t": 174.85871447899262,
+    "passed": 2,
+    "failed": 1
+  },
+  "swebench-real-06": {
+    "solved": "FAIL",
+    "strat": "refine",
+    "t": 117.16961136099417,
+    "passed": 0,
+    "failed": 1
+  }
+}

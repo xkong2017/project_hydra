@@ -1,0 +1,62 @@
+{
+  "name": "N19_operator_precedence",
+  "candidates": {
+    "N19_operator_precedence_tdd": {
+      "approach": "tdd",
+      "passed": 6,
+      "failed": 0,
+      "success": true,
+      "syntax_error": null
+    },
+    "N19_operator_precedence_root-cause": {
+      "approach": "root-cause",
+      "passed": 4,
+      "failed": 2,
+      "success": false,
+      "syntax_error": null
+    },
+    "N19_operator_precedence_minimal": {
+      "approach": "minimal",
+      "passed": 4,
+      "failed": 2,
+      "success": false,
+      "syntax_error": null
+    },
+    "N19_operator_precedence_architecture": {
+      "approach": "architecture",
+      "passed": 4,
+      "failed": 2,
+      "success": false,
+      "syntax_error": null
+    },
+    "N19_operator_precedence_adversarial": {
+      "approach": "adversarial",
+      "passed": 5,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "N19_operator_precedence_alternative": {
+      "approach": "alternative",
+      "passed": 4,
+      "failed": 2,
+      "success": false,
+      "syntax_error": null
+    }
+  },
+  "scores": {
+    "N19_operator_precedence_tdd": 100.0,
+    "N19_operator_precedence_root-cause": 33.3,
+    "N19_operator_precedence_minimal": 33.3,
+    "N19_operator_precedence_architecture": 33.3,
+    "N19_operator_precedence_adversarial": 41.7,
+    "N19_operator_precedence_alternative": 33.3
+  },
+  "tournament_winner": "N19_operator_precedence_tdd",
+  "tournament_tie": false,
+  "refinement": {
+    "success": false,
+    "passed": 0,
+    "failed": 0
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "extra-08 (BankAccount)",
+  "candidates": {
+    "extra-08 (BankAccount)_tdd": {
+      "approach": "tdd",
+      "passed": 4,
+      "failed": 0,
+      "success": true,
+      "syntax_error": null
+    },
+    "extra-08 (BankAccount)_root-cause": {
+      "approach": "root-cause",
+      "passed": 3,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "extra-08 (BankAccount)_minimal": {
+      "approach": "minimal",
+      "passed": 3,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "extra-08 (BankAccount)_architecture": {
+      "approach": "architecture",
+      "passed": 4,
+      "failed": 0,
+      "success": true,
+      "syntax_error": null
+    },
+    "extra-08 (BankAccount)_adversarial": {
+      "approach": "adversarial",
+      "passed": 4,
+      "failed": 0,
+      "success": true,
+      "syntax_error": null
+    },
+    "extra-08 (BankAccount)_alternative": {
+      "approach": "alternative",
+      "passed": 3,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    }
+  },
+  "scores": {
+    "extra-08 (BankAccount)_tdd": 100.0,
+    "extra-08 (BankAccount)_root-cause": 37.5,
+    "extra-08 (BankAccount)_minimal": 37.5,
+    "extra-08 (BankAccount)_architecture": 100.0,
+    "extra-08 (BankAccount)_adversarial": 100.0,
+    "extra-08 (BankAccount)_alternative": 37.5
+  },
+  "tournament_winner": "extra-08 (BankAccount)_adversarial",
+  "tournament_tie": false,
+  "refinement": {
+    "success": false,
+    "passed": 0,
+    "failed": 0
+  }
+}

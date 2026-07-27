@@ -1,0 +1,42 @@
+{
+  "N14_decimal_precision": {
+    "solved_by": "failed",
+    "oracle": "0/12",
+    "final_success": false,
+    "final_passed": 4,
+    "final_failed": 1,
+    "refinement_rounds": 3
+  },
+  "N17_string_escape": {
+    "solved_by": "failed",
+    "oracle": "0/12",
+    "final_success": false,
+    "final_passed": 4,
+    "final_failed": 2,
+    "refinement_rounds": 3
+  },
+  "extra-13": {
+    "solved_by": "failed",
+    "oracle": "0/12",
+    "final_success": false,
+    "final_passed": 2,
+    "final_failed": 2,
+    "refinement_rounds": 3
+  },
+  "extra-17": {
+    "solved_by": "failed",
+    "oracle": "0/12",
+    "final_success": false,
+    "final_passed": 3,
+    "final_failed": 1,
+    "refinement_rounds": 3
+  },
+  "extra-30": {
+    "solved_by": "failed",
+    "oracle": "0/12",
+    "final_success": false,
+    "final_passed": 0,
+    "final_failed": 0,
+    "refinement_rounds": 3
+  }
+}

@@ -1,0 +1,263 @@
+#!/usr/bin/env python3
+"""Hydra-Dynamic: reliable CLI for the multi-agent coding pipeline.
+
+Usage:
+  ./hydra-dynamic "Build a todo API with create, list, complete, delete"
+  ./hydra-dynamic --source source.py --test test_source.py
+  ./hydra-dynamic --help
+"""
+
+import json, os, shutil, subprocess, sys, tempfile, time, re
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+
+API = os.environ.get("VLLM_BASE_URL", "http://localhost:8000/v1")
+MODEL = os.environ.get("VLLM_MODEL", "qwen")
+MAX_TOKENS = 8192
+TIMEOUT = 300
+OUT_DIR = Path("output")
+
+STRATEGIES = [
+    ("tdd", "Read the tests first."),
+    ("root-cause", "Design the data model first."),
+    ("minimal", "Minimum implementation."),
+    ("architecture", "Clean separation of concerns."),
+    ("adversarial", "Handle all edge cases."),
+    ("alternative", "Use a different approach."),
+]
+
+
+def qwen(prompt, temp=0.3, timeout=TIMEOUT):
+    payload = {"model": MODEL, "messages": [
+        {"role": "system", "content": "You are a Python developer. Return ONLY the requested code inside ```python."},
+        {"role": "user", "content": prompt}], "max_tokens": MAX_TOKENS, "temperature": temp}
+    start = time.monotonic()
+    r = subprocess.run([sys.executable, "-c", f"""
+import json, urllib.request, sys
+p = {json.dumps(payload)}
+req = urllib.request.Request("{API}/chat/completions", data=json.dumps(p).encode(),
+    headers={{"Content-Type":"application/json"}}, method="POST")
+try:
+    with urllib.request.urlopen(req, timeout={timeout}) as resp:
+        d = json.loads(resp.read())["choices"][0]["message"]
+        sys.stdout.write(json.dumps({{"c":d.get("content","")or"","r":d.get("reasoning","")or""}}))
+except Exception as e:
+    sys.stdout.write(json.dumps({{"error":str(e)}}))
+    """], capture_output=True, text=True, timeout=timeout+30)
+    try:
+        d = json.loads(r.stdout)
+        if "error" in d: print(f"  API error: {d['error']}", file=sys.stderr); return "", "", time.monotonic()-start
+        return d.get("c",""), d.get("r",""), time.monotonic()-start
+    except: return "", "", time.monotonic()-start
+
+
+def extract_code(text):
+    in_code, lines = False, []
+    for line in text.split("\n"):
+        s = line.strip()
+        if s.startswith("```python"): in_code=True; continue
+        if s.startswith("```") and in_code: break
+        if in_code: lines.append(line)
+    return "\n".join(lines) if lines else text
+
+
+def run_tests(source_code, test_code):
+    with tempfile.TemporaryDirectory() as td:
+        w = Path(td)
+        (w/"source.py").write_text(source_code)
+        (w/"test_source.py").write_text(test_code)
+        r = subprocess.run([sys.executable,"-m","pytest","-q","test_source.py","--tb=line"],
+            cwd=w, capture_output=True, text=True, timeout=15)
+        p=f=0
+        for line in r.stdout.split("\n"):
+            for i,t in enumerate(line.replace(",","").replace(".","").split()):
+                if t=="passed":
+                    try: p=int(line.split()[i-1])
+                    except: pass
+                if t=="failed":
+                    try: f=int(line.split()[i-1])
+                    except: pass
+        return {"success":r.returncode==0,"passed":p,"failed":f or 0,"output":r.stdout+r.stderr}
+
+
+def banner(text):
+    print(f"\n{'='*60}")
+    print(f"  {text}")
+    print(f"{'='*60}")
+
+
+def main():
+    print(f"  Hydra-Dynamic Pipeline")
+    print(f"  Model: {MODEL} @ {API}\n")
+
+    # Parse args
+    args = sys.argv[1:]
+    if not args or "--help" in args or "-h" in args:
+        print("Usage:")
+        print(f"  {sys.argv[0]} \"Describe the feature you want\"")
+        print(f"  {sys.argv[0]} --source source.py --test test_source.py")
+        print(f"\nExamples:")
+        print(f"  {sys.argv[0]} \"Build a todo API with create, list, complete, delete\"")
+        return
+
+    # Check server
+    r = subprocess.run([sys.executable,"-c",f"""
+import urllib.request, json
+with urllib.request.urlopen("{API}/models",timeout=5) as resp:
+    print(json.loads(resp.read())["data"][0]["id"])
+    """], capture_output=True, text=True, timeout=10)
+    if r.returncode:
+        print(f"✗ Server not reachable at {API}")
+        print(f"  Make sure vLLM is running: vllm serve qwen --port 8000")
+        sys.exit(1)
+    print(f"  Server: {r.stdout.strip()} ✓\n")
+
+    feature = " ".join(args)
+    src_file, test_file = "source.py", "test_source.py"
+
+    # Check if user provided source/test files
+    if "--source" in args:
+        src_file = args[args.index("--source")+1]
+    if "--test" in args:
+        test_file = args[args.index("--test")+1]
+
+    user_provided_source = "--source" in args
+    user_provided_test = "--test" in args
+
+    source_code = ""
+    test_code = ""
+
+    # If user provided source and test files, read them directly
+    if user_provided_source and user_provided_test:
+        source_code = Path(src_file).read_text()
+        test_code = Path(test_file).read_text()
+        print(f"  Using: {src_file} + {test_file}")
+
+    # If user provided only source, generate tests
+    elif user_provided_source:
+        source_code = Path(src_file).read_text()
+        banner("Step 1: Generating tests from source")
+        prompt = f"""Generate pytest test functions for this code. Cover: basic operations, edge cases, error handling.
+
+```python
+{source_code}
+```
+
+Return ONLY the test code inside ```python."""
+        c, r, _ = qwen(prompt)
+        test_code = extract_code(c) or extract_code(r)
+        if not test_code.strip():
+            print("  ✗ Failed to generate tests, using default")
+            test_code = "from source import *\n\ndef test_placeholder():\n    pass\n"
+        print(f"  ✓ Generated {test_code.count('def test_')} tests")
+
+    # If neither provided, generate both from feature description
+    else:
+        banner("Step 1: Generating tests from feature description")
+        prompt = f"""Generate pytest test functions for: {feature}
+
+Rules:
+- Use pytest only
+- Each test tests one thing
+- Descriptive test names
+- Cover: basic operations, edge cases, errors
+- Assume classes are in 'source.py'
+
+Return ONLY test code inside ```python."""
+        c, r, _ = qwen(prompt)
+        test_code = extract_code(c) or extract_code(r)
+        if not test_code.strip():
+            print("  ✗ Failed to generate tests")
+            sys.exit(1)
+        print(f"  ✓ Generated {test_code.count('def test_')} tests")
+
+        banner("Step 2: Generating code skeleton")
+        prompt = f"""Implement ONLY the classes and methods needed by these tests.
+The tests import from 'source'. Use 'pass' for method bodies.
+
+Tests:
+```python
+{test_code}
+```
+
+Return ONLY the skeleton code inside ```python."""
+        c, r, _ = qwen(prompt)
+        source_code = extract_code(c) or extract_code(r)
+        if not source_code.strip():
+            source_code = "# Generated skeleton\npass\n"
+        print(f"  ✓ Skeleton: {source_code.count('class ')} classes, {source_code.count('def ')} methods")
+
+    # Run pipeline
+    banner("Step 3: Parallel rollouts (6 strategies)")
+    candidates = []
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        futures = {}
+        for sn, sp in STRATEGIES:
+            prompt = f"{sp}\n\nImplement code to pass these tests:\n\n```python\n{test_code}\n```\n\nSkeleton:\n```python\n{source_code}\n```\n\nReturn ONLY the full source.py implementation."
+            futures[ex.submit(lambda s=sn, p=prompt: (s, *qwen(p)))] = sn
+        for f in as_completed(futures):
+            sn, c, r, t = f.result()
+            code = extract_code(c) or extract_code(r)
+            tr = run_tests(code, test_code)
+            candidates.append({"sn":sn,"code":code,"t":t,**tr})
+            print(f"  [{'✓' if tr['success'] else '✗'}] {sn:<12}: {tr['passed']}/{tr['passed']+tr['failed']} ({t:.1f}s)")
+
+    best = max(candidates, key=lambda c: (c["passed"], -c.get("failed",0)))
+    final_code = best["code"]
+    final_success = best["success"]
+
+    if not final_success:
+        banner("Step 4: Test-feedback refinement")
+        # Get test errors
+        err = ""
+        with tempfile.TemporaryDirectory() as td:
+            w = Path(td)
+            (w/"source.py").write_text(best["code"])
+            (w/"test_source.py").write_text(test_code)
+            r = subprocess.run([sys.executable,"-m","pytest","-v","test_source.py","--tb=long"],
+                cwd=w, capture_output=True, text=True, timeout=15)
+            err = (r.stdout+r.stderr)[:1500]
+        
+        prompt = f"""The previous attempt was INCORRECT. Test failures:
+
+```
+{err}
+```
+
+Tests:
+```python
+{test_code}
+```
+
+Fix the ORIGINAL skeleton:
+```python
+{source_code}
+```
+
+Return ONLY the full source.py implementation."""
+        c, r, _ = qwen(prompt, temp=0.1)
+        final_code = extract_code(c) or extract_code(r)
+        tr = run_tests(final_code, test_code)
+        final_success = tr["success"]
+        print(f"  [{'✓' if final_success else '✗'}] refine: {tr['passed']}/{tr['passed']+tr['failed']}")
+
+    # Output
+    OUT_DIR.mkdir(exist_ok=True)
+    (OUT_DIR/"source.py").write_text(final_code)
+    (OUT_DIR/"test_source.py").write_text(test_code)
+
+    passed = best["passed"] if final_success else (tr["passed"] if "tr" in dir() else 0)
+    failed = best.get("failed",0) if final_success else (tr.get("failed",0) if "tr" in dir() else 0)
+
+    banner("RESULTS")
+    print(f"  Output:    output/source.py")
+    print(f"  Tests:     output/test_source.py")
+    print(f"  Status:    {'✓ PASS' if final_success else '✗ FAIL'} ({passed}/{passed+failed})")
+    print(f"  Best strat: {best['sn']} ({best['t']:.1f}s)")
+    oracle = sum(1 for c in candidates if c["success"])
+    print(f"  Oracle@6:  {oracle}/6")
+    print(f"\n  To verify: cd output && python3 -m pytest test_source.py -v")
+
+
+if __name__ == "__main__":
+    main()

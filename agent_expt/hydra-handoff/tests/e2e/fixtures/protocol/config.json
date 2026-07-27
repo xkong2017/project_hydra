@@ -1,0 +1,9 @@
+{
+  "scoring_rules": [
+    {"field": "age", "op": "gte", "value": 18, "points": 10},
+    {"field": "age", "op": "lt", "value": 18, "points": 5},
+    {"field": "score", "op": "gte", "value": 80, "points": 20},
+    {"field": "score", "op": "gte", "value": 60, "points": 10},
+    {"field": "has_id", "op": "eq", "value": true, "points": 5}
+  ]
+}

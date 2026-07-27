@@ -1,0 +1,62 @@
+{
+  "name": "extra-09 (Factory singleton)",
+  "candidates": {
+    "extra-09 (Factory singleton)_tdd": {
+      "approach": "tdd",
+      "passed": 2,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "extra-09 (Factory singleton)_root-cause": {
+      "approach": "root-cause",
+      "passed": 2,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "extra-09 (Factory singleton)_minimal": {
+      "approach": "minimal",
+      "passed": 2,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "extra-09 (Factory singleton)_architecture": {
+      "approach": "architecture",
+      "passed": 3,
+      "failed": 0,
+      "success": true,
+      "syntax_error": null
+    },
+    "extra-09 (Factory singleton)_adversarial": {
+      "approach": "adversarial",
+      "passed": 2,
+      "failed": 1,
+      "success": false,
+      "syntax_error": null
+    },
+    "extra-09 (Factory singleton)_alternative": {
+      "approach": "alternative",
+      "passed": 3,
+      "failed": 0,
+      "success": true,
+      "syntax_error": null
+    }
+  },
+  "scores": {
+    "extra-09 (Factory singleton)_tdd": 33.3,
+    "extra-09 (Factory singleton)_root-cause": 33.3,
+    "extra-09 (Factory singleton)_minimal": 33.3,
+    "extra-09 (Factory singleton)_architecture": 100.0,
+    "extra-09 (Factory singleton)_adversarial": 33.3,
+    "extra-09 (Factory singleton)_alternative": 100.0
+  },
+  "tournament_winner": "extra-09 (Factory singleton)_alternative",
+  "tournament_tie": false,
+  "refinement": {
+    "success": false,
+    "passed": 0,
+    "failed": 0
+  }
+}
